@@ -1,0 +1,107 @@
+#maini
+  ul.breadcrumb
+    li
+      = link_to "トップページ", root_path
+    li
+      = link_to 'トップス', products_path
+      /a href="../products" トップス 
+    li グローバーオールコート
+    
+
+  hr.line-bg
+
+
+  #ProductDetailArea
+    /! 画像側
+    .main-product
+      .sample
+        = image_tag @product.image_url, width: '100%'
+        / img.main alt="" src="../img/product/tops_04.jpg" /
+      ul.stock
+        li.ed
+          p ホワイト
+          p F(残り１点)
+          a href="#"
+            = image_tag 'shoppingcart.png'
+            images.shoppingcart alt="" src="../../../../../images/shoppingcart.png" /
+    /! 詳細側
+    .main-detail
+      .icon
+        p.new New
+        p.repeat 再入荷
+      p.lot-number
+        | 商品番号：
+        = @product.code
+          / 商品番号：
+      h2 = @product.name
+      p.price = number_to_currency @product.price
+      p.title Detail
+      ul.DetailColor
+        - @product.images.each do |image|      
+          li
+            = image_tag image.url
+          /img alt="" src="../img/product/tops_04.jpg" /
+      p.title Color
+      ul.DetailColor
+        - @product.images.each do |image|
+          li
+            = image_tag image.url        
+        lku_v_item_namei　　　　
+      table.other-detail
+        tbody
+          tr
+            th 素材
+            td アクリル100%
+          tr
+            th 原産国
+            td 日本製
+          tr
+            th 商品番号
+            td =@product.code
+          tr
+            th ブランド
+            td K＆B
+      table.size
+        tbody
+          tr
+            th サイズ
+            th バスト
+            th ウェスト
+            th ヒップ
+          tr
+            td フリー
+            td 80cm
+            td 60cm
+            td 90cm
+    /! clear both
+    .introduction
+  
+      p アイテム紹介
+      p.text =@product.caption
+  hr.dod
+
+
+  .check-item
+    p 最近見たアイテム
+    .inner
+      a href="../shoes/shoes_detail_02.html"
+        img alt="../img/product/shoes_02.jpg" 
+      a href="tops_detail_01.html"
+        img alt="../img/product/tops_01.jpg"  
+      a href="tops_detail_02.html"
+        img alt="../img/product/tops_02.jpg"                    
+
+
+  .check-item
+    p この商品を見た人はこんな表品もチェックしています
+    .inner
+      a href="../shoes/shoes_detail_02.html"
+        img alt="../img/product/shoes_02.jpg" 
+      a href="../shoes/shoes_detail_04.html"
+        img alt="../img/product/shoes_04.jpg"
+      a href="../shoes/shoes_detail_05.html"
+        img alt="../img/product/shoes_05.jpg"
+
+
+
+

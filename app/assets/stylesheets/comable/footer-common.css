@@ -1,0 +1,121 @@
+@charset "UTF-8";
+/* CSS footer-common */
+
+
+h2 {
+	font-size: 24px;
+	font-weight: normal;
+	margin: 0 0 0 20px;
+}
+
+h3 {
+	font-size: 16px;
+	margin: 50px 0 0 0;
+}
+
+p.ex {
+	margin: 20px 0 20px 20px;
+}
+
+/* table */
+table {
+	width: 100%;
+	color: #3c3c3c;
+	font-weight: normal;
+	margin: 20px 0 0 0;
+}
+	table th, td {
+		vertical-align: top;
+		padding: 10px 0 10px 20px;
+	}
+	table th {
+		width: 140px;
+	}
+	table td a {
+		color: #99cccc;
+	}
+	table td a:hover {
+		text-decoration: underline;
+	}
+
+	/* リスト */
+	table ul {
+		list-style: inside;
+	}
+		table ul li {
+			line-height: 20px;
+		}
+
+/* dl */
+dl {
+	margin: 0 0 0 20px;
+	padding: 0;
+}
+	dt, dd {
+		margin: 0;
+		padding: 0;
+	}
+	dt {
+		font-weight: bold;
+		margin: 20px 0 0 0;
+	}
+	/* リスト */
+	dd li {
+		margin: 5px 0 0 15px;
+	}
+	
+/* よくある質問 */
+.faq {
+	width: 900px;
+	background: #f0f0f0;
+	margin: 20px auto 0 auto;
+	padding: 0 20px 20px 20px;
+}
+
+	.faq ul li.title {
+		font-weight: bold;
+		font-size: 13px;
+		padding: 20px 0 0 0;
+	}
+	
+	.faq a {
+		color: #000;
+	}
+	.faq a:hover {
+		text-decoration: underline;
+	}
+
+.answer-box {
+	width: 940px;
+	margin: 0 auto;
+}
+	/* Q */
+	.q-box {
+		background: #424242;
+		color: #fff;
+		overflow: hidden;
+		padding: 8px 5px 5px 15px;
+	}
+		.q-box p.q {
+			float: left;
+			width: 20px;
+		}
+		.q-box p.question {
+			float: left;
+			width: 890px;
+		}
+	/* A */
+	.a-box {
+		border: #424242 1px solid;
+		overflow: hidden;
+		padding: 5px 5px 5px 15px;
+	}
+		.a-box p.a {
+			float: left;
+			font-weight: bold;
+			width: 20px;
+		}
+		.a-box p.answer {
+			float: left;
+			width: 890px;
+		}

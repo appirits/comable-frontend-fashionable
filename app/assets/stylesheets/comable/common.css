@@ -1,0 +1,274 @@
+@charset "UTF-8";
+/* CSS 共通設定 */
+
+#help_me,	x:-moz-any-link	{ color: red; }
+#help_me { color/**/: blue; }
+/*cssハック*/
+
+@-moz-document url-prefix() { body { line-height: 18px; } }
+/* firefox hack  */
+
+* html, body, h1, h2, h3, h4, p, ul, li, img {
+	margin: 0;
+	padding: 0;
+	border: 0; }
+
+table, tr, th, td {
+	font-size: 100%;
+	text-align: left; }
+
+table { border-collapse: collapse; }
+
+ul {
+	list-style: none; }
+	
+img a {
+	border-style: none;
+}
+
+a {
+	text-decoration: none;
+}
+
+input, textarea {
+	font-size: 1em;
+	/* for IE */ }
+
+/* -------------------------------- */
+clearfix:after {
+content: ".";
+display: block;
+height: 0;
+clear: both;
+visibility: hidden;
+}
+
+.clearfix {display: inline-block;}
+ 
+/* Hides from IE-mac \*/
+* html .clearfix {height: 1%;}
+.clearfix {display: block;}
+/* End hide from IE-mac */
+
+/* -------------------------------- */
+body {
+	-webkit-text-size-adjust: 100%;
+	font-size: 12px;
+	font-family:"ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+	}
+	
+/* Line */
+hr.line {
+	border: none;
+	border-top: #909090 3px solid;
+	margin: 0 0 20px 0;
+}
+
+/* style */
+/* -------------------------------- */
+#wrap {
+	width: 980px;
+	margin: 0 auto;
+	overflow: hidden;
+}
+
+/* header */
+/* -------------------------------- */
+#header {
+	width: 980px;
+	margin: 0 auto;
+	overflow: hidden;
+	margin: 15px auto 10px auto;
+}
+	#header h1 {
+		width: 205px;
+		float: left;
+		margin: 34px 0 0 0;
+	}
+	#header .member-info {
+		width: 335px;
+		float: right;
+	}
+		/* カートを見る */
+		.member-info .cart {
+			width: 329px;
+			border: #d0d0d0 1px solid;
+			background: #fff;
+			padding: 2px;
+			margin: 0 0 10px 0;
+		}
+			.member-info .cart .inner-bg {
+				background: url(../img/common/cart.png) #f3f3f3 no-repeat;
+				background-position: 10px 5px;
+				height: 38px;
+			}
+			.member-info .cart .inner-bg p {
+				text-align: right;
+				font-size: 14px;
+				padding: 12px 10px 0 0;
+			}
+		/* メンバー情報 */
+		#header .member-info p.test a {
+			font-size: 14px;
+			color: #555555;
+		}
+		p.test a:hover {
+			text-decoration: underline;
+		}
+		
+/* contents */
+/* -------------------------------- */
+#contents {
+	overflow: hidden;
+}
+
+	/* menu */
+	/* -------------------------------- */
+	#menu {
+		width: 185px;
+		float: left;
+	}
+		/* カテゴリー検索 */
+		.category {
+			clear: both;
+			border-top: #f3f3f3 1px solid;
+			border-left: #f3f3f3 1px solid;
+			border-right: #f3f3f3 1px solid;
+			margin: 0;
+		}
+		.category p.title {
+			background: #f3f3f3;
+			color: #474747;
+			font-size: 14px;
+			font-family: "メイリオ", Meiryo;
+			font-weight: bold;
+			padding: 8px 0 8px 10px;
+			margin: 0;
+		}
+		/* メニュー */
+		dl#acMenu {
+			padding: 0;
+			margin: 0;
+		}
+		dl#acMenu dt {
+			display: block;
+			width: 168px;
+			text-indent: 10px;
+			border-bottom: #f3f3f3 1px solid;
+			cursor: pointer;
+			background: url(../img/common/menu_arrow_down.png) 160px 18px no-repeat;
+			padding: 12px 15px 12px 0;
+		}
+		dl#acMenu dd {
+			border-bottom: #f3f3f3 1px solid;
+			display: none;
+			padding: 5px 0;
+			margin: 0;
+		}
+			dl#acMenu dd p {
+				text-indent: 25px;
+				padding: 5px 0;
+			}
+			dl#acMenu dd p a {
+				color: #777070;
+			}
+			dl#acMenu dd p a:hover {
+				text-decoration: underline;
+			}
+		dl#acMenu dt.active {
+			background: url(../img/common/menu_arrow_up.png) 160px 18px no-repeat;
+		}
+		
+		/* バナー */
+		.sns-banner {
+			clear: both;
+			margin: 10px 0 0 0;
+		}
+		.sns-banner img {
+			margin: 0 0 5px 0;
+		}
+		.sns-banner a img:hover {
+			opacity: 0.8;
+			filter: alpha(opacity=80);
+			-ms-filter: "alpha( opacity=80 )";
+			background: #fff;
+		}
+	
+	/* main */
+	/* -------------------------------- */	
+	#main {
+		width: 780px;
+		float: right;
+	}
+		/* パンくず */
+		ul.breadcrumb {
+			overflow: hidden;
+		}
+		ul.breadcrumb li {
+			float: left;
+			padding: 0 10px 0 0;
+		}
+			ul.breadcrumb li a {
+				color: #606060;
+			}
+			ul.breadcrumb li a:hover {
+				text-decoration: underline;
+			}
+			
+/* ライン */
+.line-bg {
+	clear: both;
+	display: block;
+	border: none;
+	height: 11px;
+	background: url(../img/common/line_bg.gif) repeat;
+	text-indent: -9999px;
+	margin: 18px 0;
+}
+
+/* 共通パンくず */
+ul.pan {
+	overflow: hidden;
+}
+	ul.pan li {
+		float: left;
+		margin: 0 10px 0 0;
+	}
+	ul.pan li a {
+		color: #606060;
+	}
+	ul.pan li a:hover {
+		text-decoration: underline;
+	}
+		
+/* Page TOP */
+/* -------------------------------- */	
+.pagetop {
+	float: right;
+	margin: 40px 0 0 0;
+}
+	
+/* footer */
+/* -------------------------------- */
+#footer {
+	width: 100%;
+	background: #f0f0f0;
+}
+	#footer .inner {
+		width: 980px;
+		margin: 0 auto;
+		padding: 20px 0;
+	}
+		.inner a {
+			color: #000;
+		}
+		.inner a:hover {
+			text-decoration: underline;
+		}
+	/* copyright */
+	.inner .copyright {
+		color: #8d8d8d;
+		font-size: 10px;
+		letter-spacing: 1px;
+		padding: 5px 0 10px 0;
+	}

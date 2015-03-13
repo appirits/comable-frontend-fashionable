@@ -1,0 +1,11 @@
+#!/usr/bin/env ruby
+
+require 'webrick'
+require 'optparse'
+
+abort "usage: #{File.basename -bash} [-p port] file" if ARGV.empty?
+
+port = ARGV.getopts('p:').values.first || 8000
+document_root = File.join(Dir::pwd, ARGV.shift)
+
+WEBrick::HTTPServer.new(:Port => port, :DocumentRoot => document_root).tap {|s| trap('INT') { s.shutdown } }.start

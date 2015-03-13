@@ -1,0 +1,225 @@
+@charset "UTF-8";
+/* CSS detail */
+
+#ProductDetailArea {
+	width: 780px;
+	overflow: hidden;
+}
+	/* 画像 */
+	/* ------------------------------ */
+	.main-product {
+		float: left;
+		width: 416px;
+	}
+		.main-product img.main {
+			border: #000 1px solid;
+		}
+		/* 在庫 */
+		.stock {
+			border-top: #ccc 1px solid;
+			margin: 10px 0;
+		}
+			.stock li {
+				padding: 10px 20px;
+				border-bottom: #ccc 1px solid;
+				overflow: hidden;
+			}
+				.stock li p {
+					float: left;
+					width: 100px;
+					padding: 3px 0 0 0;
+				}
+				.stock li img.shoppingcart {
+					float: right;
+					margin: 0;
+					padding: 0;
+				}
+					img.shoppingcart:hover {
+						opacity: 0.8;
+						filter: alpha(opacity=80);
+						-ms-filter: "alpha( opacity=80 )";
+						background: #fff;
+					}
+		
+	/* 詳細 */
+	/* ------------------------------ */
+	.main-detail {
+		float: right;
+		width: 355px;
+	}
+		 /* アイコン */
+		.main-detail .icon {
+			width: 332px;
+			margin: 0 0 10px 0;
+			overflow: hidden;
+		}
+			/* 新着アイコン */
+			.main-detail .icon p.new {
+				float: left;
+				width: 75px;
+				background: #f2546a;
+				text-align: center;
+				font-weight: bold;
+				color: #fff;
+				border-radius: 3px;
+				margin: 0 2px;
+			}
+			/* 再入荷アイコン */
+			.main-detail .icon p.repeat {
+				float: left;
+				width: 75px;
+				background: #54b1f2;
+				text-align: center;
+				font-weight: bold;
+				color: #fff;
+				border-radius: 3px;
+				margin: 0 2px;
+			}
+			/* 値下げアイコン */
+			.main-detail .icon p.down {
+				float: left;
+				width: 75px;
+				background: #b473eb;
+				text-align: center;
+				font-weight: bold;
+				color: #fff;
+				border-radius: 3px;
+				margin: 0 2px;
+			}
+			/* SOLDUOT */
+			.main-detail .icon p.soldout {
+				float: left;
+				width: 75px;
+				background: #000;
+				text-align: center;
+				font-weight: bold;
+				color: #fff;
+				border-radius: 3px;
+				margin: 0 2px;
+			}
+		
+		/* 商品番号 */
+		.lot-number {
+			clear: both;
+			font-size: 12px;
+		}
+		/* 商品名 */
+		h2 {
+			font-size: 18px;
+			font-weight: normal;
+		}
+		/* 価格 */
+		.price {
+			font-size: 14px;
+			margin: 30px 0 20px 0;
+		}
+			.price span {
+				display: block;
+				color: #e70505;
+			}
+			
+		/* Detail Color */
+		.title {
+			font-size: 14px;
+			margin: 20px 0 0 0;
+		}
+		/* 詳細画像 */
+		ul.DetailColor {
+			overflow: hidden;
+			display: inline-block;
+		}
+			ul.DetailColor li {
+				float: left;
+				width: 66px;
+				height: 110px;
+				font-size: 10px;
+				display: inline;
+				cursor: pointer;
+				margin: 0 3px 0 0;
+			}
+			ul.DetailColor li img {
+				width: 66px;
+				height: 96px;
+				border: #000 1px solid;
+			}
+			ul.DetailColor li img:hover {
+				opacity: 0.8;
+				filter: alpha(opacity=80);
+				-ms-filter: "alpha( opacity=80 )";
+				background: #fff;
+			}
+			
+		/* 詳細（素材等） */
+		.other-detail {
+			clear: both;
+			margin: 20px 0 0 0;
+		}
+			.other-detail th {
+				width: 70px;
+				vertical-align: top;
+				padding: 5px 0px 5px 5px;
+			}
+			
+		/* サイズ */
+		.size {
+			width: 353px;
+			border: #aeaeae 1px solid;
+			font-size: 11px;
+			margin: 20px 0 0 0;
+		}
+			.size th {
+				background: #aeaeae;
+				color: #fff;
+				text-align: center;
+				padding: 4px 10px;
+			}
+			.size td {
+				border-bottom: #aeaeae 1px solid;
+				text-align: center;
+				padding: 4px 10px;
+			}
+			
+	/* アイテム紹介 */
+	.introduction {
+		clear: both;
+		background: #fff;
+		padding: 20px 0 50px 0;
+	}
+		.introduction p {
+			font-size: 14px;
+		}
+		.introduction p.text {
+			border: #ccc 1px solid;
+			font-size: 12px;
+			padding: 5px;
+		}
+
+/* 最近見たアイテム・他の人のチェックアイテム */
+.check-item {
+	margin: 25px 0 25px 0;
+}
+	.check-item p {
+		font-size: 14px;
+	}
+	.check-item .inner {
+		border: #ccc 1px solid;
+		padding: 12px 6px;
+		overflow: hidden;
+	}
+	.check-item .inner img {
+		float: left;
+		width: 73px;
+		margin: 0 6px;
+	}
+		.check-item .inner img:hover {
+			opacity: 0.8;
+			filter: alpha(opacity=80);
+			-ms-filter: "alpha( opacity=80 )";
+			background: #fff;
+		}
+		
+hr.dod {
+	border: none;
+	border-top: #ccc 1px dotted;
+	padding: 0 0 25px 0;
+}
