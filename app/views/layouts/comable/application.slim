@@ -9,7 +9,6 @@ html
     - if current_store.meta_description.present?
       meta name="description" content="#{current_store.meta_description}"
 
-    = stylesheet_link_tag "comable/frontend/application", media: "all"
     = javascript_include_tag "comable/frontend/application"
     = csrf_meta_tags
 
@@ -36,6 +35,7 @@ html
       - flash.each do |name, msg|
         = content_tag(:div, msg, id: "flash_#{name}")
 
+      = render 'comable/shared/sidebar'
       == yield
 
     = render 'comable/shared/footer'
