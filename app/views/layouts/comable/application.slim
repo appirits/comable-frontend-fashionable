@@ -227,30 +227,34 @@ html lang="ja" xml:lang="ja" xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http
               p
                 a href="../accessories/list_other.html"  その他
         .sns-banner
+          a href="#"
+            = image_tag 'banner_tw.gif'
+            imges.shoppingcart alt="" src="../../../../../../images/banner_tw.gif" /
           a href="#" 
-            img alt="" src="../img/common/banner_tw.gif" /
+            = image_tag 'banner_fb.gif'
+            imges.shoppingcart alt="" src="../../../../../../images/banner_fb.gif" /
           a href="#" 
-            img alt="" src="../img/common/banner_fb.gif" /
-          img alt="" src="../img/common/banner_QR.gif" /
+            = image_tag 'banner_QR.gif'
+            imges.shoppingcart alt="" src="../../../../../../images/banner_QR.gif" /
       /! end#menu
       #main
         ul.breadcrumb
           li
-            a href="../index.html" > トップページ
+            = link_to "トップページ", root_path
             | 　&gt;
           li
-            a href="../tops/list.html" > トップス
+            = link_to '  トップス', products_path
             | 　&gt;
           li
-            a href="../tops/list_shirts.html" > シャツ・ブラウス
+            a href="../tops/list_shirts.html"  シャツ・ブラウス
             | 　&gt;
-          li 花柄プリントシースルーブラウス
+          li ビジネスコート
         hr.line-bg/
         #ProductDetailArea
           /! 画像側
           .main-product
             .sample
-              = image_tag @product.image_url, width: "100%"
+              = image_tag @product.image_url, width: '100%'
               / img.main alt="" src="../img/product/tops_03.jpg" /
             ul.stock
               li.ed
@@ -310,29 +314,29 @@ html lang="ja" xml:lang="ja" xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http
           .introduction
 	  
           p アイテム紹介
-	  p.text =@product.caption
-        /! end#ProductDetailArea
-        hr.dod/
-
+          p.text =@product.caption
+      hr.dod
+ 
         .check-item
           p 最近見たアイテム
           .inner
-            a href="../shoes/shoes_detail_02.html" 
-              img alt="" src="../img/product/shoes_02.jpg" /
-            a href="tops_detail_01.html" 
-              img alt="" src="../img/product/tops_01.jpg" /
-            a href="tops_detail_02.html" 
-              img alt="" src="../img/product/tops_02.jpg" /
+            = image_tag 'shoes_02.jpg'
+            imges.shoppingcart alt="" src="../../../../../../images/shoes_02.jpg" /
+            = image_tag 'tops_01.jpg'
+            imges.shoppingcart alt="" src="../../../../../../images/tops_01.jpg" /
+            = image_tag 'tops_02.jpg'
+            imges.shoppingcart alt="" src="../../../../../../images/tops_02.jpg" /
 
         .check-item
           p この商品を見た人はこんな表品もチェックしています
           .inner
-            a href="../shoes/shoes_detail_02.html" 
-              img alt="" src="../img/product/shoes_02.jpg" /
-            a href="../shoes/shoes_detail_04.html" 
-              img alt="" src="../img/product/shoes_04.jpg" /
-            a href="../shoes/shoes_detail_05.html" 
-              img alt="" src="../img/product/shoes_05.jpg" /
+            = image_tag 'shoes_02.jpg'
+            imges.shoppingcart alt="" src="../../../../../../images/shoes_02.jpg" /
+            = image_tag 'tops_04.jpg'
+            imges.shoppingcart alt="" src="../../../../../../images/tops_04.jpg" /
+            = image_tag 'tops_01.jpg'
+            imges.shoppingcart alt="" src="../../../../../../images/tops_01.jpg" /
+
       /! end#mian
     /! end#contents
     .pagetop
@@ -341,13 +345,13 @@ html lang="ja" xml:lang="ja" xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http
   /! end#wrap
   #footer
     .inner
-      a href="https://www.appirits.com/inquiry/privacy_collect?select=12" target="_blank" > お問い合わせ
+      a href="https://www.appirits.com/inquiry/privacy_collect?select=12" target="_blank"  お問い合わせ
       | 　　
-      a href="../faq.html" > よくある質問
+      a href="../faq.html"  よくある質問
       | 　　
-      a href="../privacy.html" > プライバシーポリシー
+      a href="../privacy.html"  プライバシーポリシー
       | 　　
-      a href="../tradelaw.html" > 特定商取引法に基づく表記
+      a href="../tradelaw.html"  特定商取引法に基づく表記
       | 　　
       a href="../company.html"  会社概要
       p.copyright Copyright (c) 2000-2015 K&Bstyle CO.LTD. All Rights Reserved.
