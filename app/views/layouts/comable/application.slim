@@ -1,6 +1,20 @@
 doctype html
-html
+html lang="ja" xml:lang="ja" xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://www.facebook.com/2008/fbml" xmlns:mixi="http://mixi-platform.com/ns#" xmlns:og="http://ogp.me/ns#"
   head
+    meta content=("text/html; charset=utf-8") http-equiv="Content-Type" /
+    meta content="ja" http-equiv="Content-Language" /
+    meta content="text/css" http-equiv="Content-Style-Type" /
+    meta content="text/javascript" http-equiv="Content-Script-Type" /
+    meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible" /
+    meta content="no" http-equiv="imagetoolbar" /
+    meta content="no-cache" http-equiv="Pragma" /
+    meta content="no-cache" http-equiv="cache-control" /
+    meta content="description" name="description" /
+    meta content="keywords" name="keywords" /
+    link href="../css/common.css" rel="stylesheet" type="text/css" /
+    link href="../css/detail.css" rel="stylesheet" type="text/css" /
+    title comable
+
     title = current_store.name
 
     - if current_store.meta_keywords.present?
@@ -24,334 +38,72 @@ html
           function() { $('.dropdown-menu', this).stop().hide().parent().removeClass('open'); });
       });
 
+    //[if IE]
+      <meta http-equiv="X-UA-Compatible" content="IE=edge"
+    //[if lt IE 9]
+      <script src="js/html5shiv-printshiv.js"></script
+      <script src="//ie7-js.googlecode.com/svn/version/2.1(beta4)/IE9.js"></script
+    script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js?ver=1.8.3" 
+    javascript:
+      $(function(){
+        $("#acMenu dt").on("click", function() {
+          $(this).next().slideToggle();
+            $(this).toggleClass("active");//追加部分
+        });
+      });
+    javascript:
+      $(function(){
+        // #で始まるアンカーをクリックした場合に処理
+        $('a[href^=#]').click(function() {
+          // スクロールの速度
+          var speed = 400; // ミリ秒
+          // アンカーの値取得
+          var href= $(this).attr("href");
+          // 移動先を取得
+          var target = $(href == "#" || href == "" ? 'html' : href);
+          // 移動先を数値で取得
+          var position = target.offset().top;
+          // スムーススクロール
+          $('body,html').animate({scrollTop:position}, speed, 'swing');
+          return false;
+        });
+      });
+    /! 画像切り替え
+    javascript:
+      $(function () {
+        // プリロード
+        for(var i = 1; i <= 5; i++) {
+          $('<img>').attr('src', '../img/product/shoes_01' + i + '.jpg');
+          }
+      
+          $('.DetailColor img').click(function() {
+          //　thumbをfulに置換
+          var img_full = $(this).attr('src').replace('DetailColor', 'sample');
+      
+          // 画像をフェードイン、フェードアウトする
+          $('.sample img').fadeOut('fast', function() {
+            $(this).attr('src', img_full).fadeIn();
+            });
+          
+          // 画像をフェードイン、フェードアウトしない
+          // $('#full img').attr('src', img_full);
+          });
+      });
   - mini_header_flag = controller_name == 'orders' || devise_controller?
   body class="#{'comable-checkout-layout' if mini_header_flag}"
     - if mini_header_flag
       = render 'comable/shared/header_for_checkout'
     - else
       = render 'comable/shared/header'
-
-    main.container
-      - flash.each do |name, msg|
-        = content_tag(:div, msg, id: "flash_#{name}")
-
-      = render 'comable/shared/sidebar'
-      == yield
+    #wrap
+      main.container
+        - flash.each do |name, msg|
+          = content_tag(:div, msg, id: "flash_#{name}")
+      
+        = render 'comable/shared/sidebar'
+        == yield
 
     = render 'comable/shared/footer'
 
 
 
-doctype html
-html lang="ja" xml:lang="ja" xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://www.facebook.com/2008/fbml" xmlns:mixi="http://mixi-platform.com/ns#" xmlns:og="http://ogp.me/ns#" 
-  head
-    meta content=("text/html; charset=utf-8") http-equiv="Content-Type" /
-    meta content="ja" http-equiv="Content-Language" /
-    meta content="text/css" http-equiv="Content-Style-Type" /
-    meta content="text/javascript" http-equiv="Content-Script-Type" /
-    meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible" /
-    meta content="no" http-equiv="imagetoolbar" /
-    meta content="no-cache" http-equiv="Pragma" /
-    meta content="no-cache" http-equiv="cache-control" /
-    meta content="description" name="description" /
-    meta content="keywords" name="keywords" /
-    link href="../css/common.css" rel="stylesheet" type="text/css" /
-    link href="../css/detail.css" rel="stylesheet" type="text/css" /
-    title K&B style｜花柄プリントシースルーブラウス｜デモサイト｜エレコマ
-    /![if IE]
-      | <meta http-equiv="X-UA-Compatible" content="IE=edge"
-    /![if lt IE 9]
-      | <script src="js/html5shiv-printshiv.js"></script
-      | <script src="//ie7-js.googlecode.com/svn/version/2.1(beta4)/IE9.js"></script
-    script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js?ver=1.8.3" 
-    javascript:
-      | $(function(){
-          | $("#acMenu dt").on("click", function() {
-              | $(this).next().slideToggle();
-              | $(this).toggleClass("active");//追加部分
-          | });
-      | });
-    javascript:
-      | $(function(){
-         /!/ #で始まるアンカーをクリックした場合に処理
-         | $('a[href^=#]').click(function() {
-            /!/ スクロールの速度
-            | var speed = 400; // ミリ秒
-            /!/ アンカーの値取得
-            | var href= $(this).attr("href");
-            /!/ 移動先を取得
-            | var target = $(href == "#" || href == "" ? 'html' : href);
-            /!/ 移動先を数値で取得
-            | var position = target.offset().top;
-            /!/ スムーススクロール
-            | $('body,html').animate({scrollTop:position}, speed, 'swing');
-            | return false;
-         | });
-      | });
-    /! 画像切り替え
-    javascript:
-      | $(function () {
-        /!/ プリロード
-        | for(var i = 1; i <= 5; i++) {
-          | $('<img>').attr('src', '../img/product/shoes_01' + i + '.jpg');
-        | }
-      
-        | $('.DetailColor img').click(function() {
-         /!/　thumbをfulに置換
-          | var img_full = $(this).attr('src').replace('DetailColor', 'sample');
-      
-          /!/ 画像をフェードイン、フェードアウトする
-          | $('.sample img').fadeOut('fast', function() {
-            | $(this).attr('src', img_full).fadeIn();
-          | });
-          
-          /!/ 画像をフェードイン、フェードアウトしない
-          /!/ $('#full img').attr('src', img_full);
-        | });
-      | });
-  #header
-    h1
-      a href=root_path 
-        = image_tag 'logo.gif'
-          imges.shoppingcart alt="" src="../../../../../imges/logo.gif" /
-    .member-info
-      .cart
-        .inner-bg
-          p 0点　　\ 0-
-      p.test
-        | 　　　
-        a href="#" 会員登録
-        | 　｜　
-        a href="#" マイページ
-        | 　｜　
-        a href="#" お気に入り
-        | 　
-  /! end#heder
-  hr.line/
-  #wrap
-    #contents
-      #menu
-        .category
-          p.title カテゴリーから探す
-          dl#acMenu
-            dt.audative トップス
-            dd style=("display: none;")
-              p
-                a href="../comable/products?category_id=1"  全て見る
-              p
-                a href="../tops/list_knit.html"  ニット
-              p
-                a href="../tops/list_tshirts.html"  カットソー・Tシャツ
-              p
-                a href="../tops/list_cardigan.html"  カーディガン
-              p
-                a href="../tops/list_sweat.html"  パーカー・トレーナー
-              p
-                a href="../tops/list_shirts.html"  シャツ・ブラウス
-            dt ワンピース
-            dd style=("display: none;")
-              p
-                a href="../onepiece/list.html"  全て見る
-              p
-                a href="../onepiece/list_onepiece.html"  ワンピース
-              p
-                a href="../onepiece/list_allinone.html"  オールインワン
-              p
-                a href="../onepiece/list_other.html"  その他
-            dt アウター
-            dd style=("display: none;")
-              p
-                a href="../outer/list.html"  全て見る
-              p
-                a href="../outer/list_coat.html"  コート
-              p
-                a href="../outer/list_jacket.html"  ジャケット
-              p
-                a href="../outer/list_other.html"  その他
-            dt ボトムス
-            dd style=("display: none;")
-              p
-                a href="../bottoms/list.html"  全て見る
-              p
-                a href="../bottoms/list_skirt.html"  スカート
-              p
-                a href="../bottoms/list_pants.html"  パンツ・ショートパンツ
-              p
-                a href="../bottoms/list_denim.html"  デニム
-            dt ストール・マフラー
-            dd style=("display: none;")
-              p
-                a href="../stall/list.html"  全て見る
-              p
-                a href="../stall/list_stole.html"  ストール
-              p
-                a href="../stall/list_muffler.html"  マフラー
-            dt バック
-            dd style=("display: none;")
-              p
-                a href="../bag/list.html"  全て見る
-              p
-                a href="../bag/list_handbag.html"  ハンドバック
-              p
-                a href="../bag/list_totebag.html"  トートバック
-              p
-                a href="../bag/list_rucksack.html"  リュック
-              p
-                a href="../bag/list_other.html"  その他
-            dt シューズ
-            dd style=("display: none;")
-              p
-                a href="../shoes/list.html"  全て見る
-              p
-                a href="../shoes/list_boots.html"  ブーツ
-              p
-                a href="../shoes/list_sandals.html"  サンダル・ミュール
-              p
-                a href="../shoes/list_pumps.html"  パンプス
-              p
-                a href="../shoes/list_sneakers.html"  スニーカー
-            dt アクセサリー・その他
-            dd style=("display: none;")
-              p
-                a href="../accessories/list.html"  全て見る
-              p
-                a href="../accessories/list_belt.html"  ベルト
-              p
-                a href="../accessories/list_hat.html"  ハット・帽子
-              p
-                a href="../accessories/list_glass.html"  サングラス・メガネ
-              p
-                a href="../accessories/list_watch.html"  時計・ブレスレット
-              p
-                a href="../accessories/list_earring.html"  ピアス・イヤリング
-              p
-                a href="../accessories/list_other.html"  その他
-        .sns-banner
-          a href="#"
-            = image_tag 'banner_tw.gif'
-            imges.shoppingcart alt="" src="../../../../../../images/banner_tw.gif" /
-          a href="#" 
-            = image_tag 'banner_fb.gif'
-            imges.shoppingcart alt="" src="../../../../../../images/banner_fb.gif" /
-          a href="#" 
-            = image_tag 'banner_QR.gif'
-            imges.shoppingcart alt="" src="../../../../../../images/banner_QR.gif" /
-      /! end#menu
-      #main
-        ul.breadcrumb
-          li
-            = link_to "トップページ", root_path
-            | 　&gt;
-          li
-            = link_to '  トップス', products_path
-            | 　&gt;
-          li
-            a href="../tops/list_shirts.html"  シャツ・ブラウス
-            | 　&gt;
-          li ビジネスコート
-        hr.line-bg/
-        #ProductDetailArea
-          /! 画像側
-          .main-product
-            .sample
-              = image_tag @product.image_url, width: '100%'
-              / img.main alt="" src="../img/product/tops_03.jpg" /
-            ul.stock
-              li.ed
-                p ブラック
-                p F（在庫あり）
-                a href="#" 
-                  = image_tag 'shoppingcart.png'
-                  imges.shoppingcart alt="" src="../../../../../../images/shoppingcart.png" /
-          /! 詳細側
-          .main-detail
-            .icon
-              p.down 値下げ
-              p.new New 再入荷
-            p.lot-number
-              | 商品番号：
-              = @product.code
-                / 商品番号：
-            h2 = @product.name
-            p.price= number_to_currency @product.price
-            p.title Detail
-            ul.DetailColor
-              - @product.images.each do |image|
-                li
-                  = image_tag image.url
-                /img alt="" src="../img/product/tops_04.jpg" /
-            p.title Color
-            ul.DetailColor
-              - @product.images.each do |image|
-                li
-                  = image_tag image.url
-              lku_v_item_namei　
-            table.other-detail
-              tr
-                th 素材
-                td アクリル100%
-              tr
-                th 原産国
-                td 日本製
-              tr
-                th 商品番号
-                td =@product.code
-              tr
-                th ブランド
-                td K＆B
-            table.size
-              tr
-                th サイズ
-                th バスト
-                th ウェスト
-                th ヒップ
-              tr
-                td フリー
-                td 80cm
-                td 60cm
-                td 90cm
-          /! clear both
-          .introduction
-	  
-          p アイテム紹介
-          p.text =@product.caption
-      hr.dod
- 
-        .check-item
-          p 最近見たアイテム
-          .inner
-            = image_tag 'shoes_02.jpg'
-            imges.shoppingcart alt="" src="../../../../../../images/shoes_02.jpg" /
-            = image_tag 'tops_01.jpg'
-            imges.shoppingcart alt="" src="../../../../../../images/tops_01.jpg" /
-            = image_tag 'tops_02.jpg'
-            imges.shoppingcart alt="" src="../../../../../../images/tops_02.jpg" /
-
-        .check-item
-          p この商品を見た人はこんな表品もチェックしています
-          .inner
-            = image_tag 'shoes_02.jpg'
-            imges.shoppingcart alt="" src="../../../../../../images/shoes_02.jpg" /
-            = image_tag 'tops_04.jpg'
-            imges.shoppingcart alt="" src="../../../../../../images/tops_04.jpg" /
-            = image_tag 'tops_01.jpg'
-            imges.shoppingcart alt="" src="../../../../../../images/tops_01.jpg" /
-
-      /! end#mian
-    /! end#contents
-    .pagetop
-      a href="#header" 
-        img alt="" src="../img/common/pagetop.gif" /
-  /! end#wrap
-  #footer
-    .inner
-      a href="https://www.appirits.com/inquiry/privacy_collect?select=12" target="_blank"  お問い合わせ
-      | 　　
-      a href="../faq.html"  よくある質問
-      | 　　
-      a href="../privacy.html"  プライバシーポリシー
-      | 　　
-      a href="../tradelaw.html"  特定商取引法に基づく表記
-      | 　　
-      a href="../company.html"  会社概要
-      p.copyright Copyright (c) 2000-2015 K&Bstyle CO.LTD. All Rights Reserved.

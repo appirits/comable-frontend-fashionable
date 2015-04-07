@@ -107,13 +107,13 @@
 }
 	
 .line-bg {
+        clear: both;
 	display: block;
 	border: none;
-	width: 565px;
 	height: 11px;
-	background: url(../img/common/line_bg.gif) repeat;
+	background: url(/assets/line_bg.gif) repeat;
 	text-indent: -9999px;
-	margin: 0;
+	margin: 18px 0;
 }
 /* 入荷アイテム */
 .item-box {

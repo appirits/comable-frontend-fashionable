@@ -98,7 +98,7 @@ hr.line {
 			margin: 0 0 10px 0;
 		}
 			.member-info .cart .inner-bg {
-				background: url(../img/common/cart.png) #f3f3f3 no-repeat;
+				background: url(/assets/cart.png) #f3f3f3 no-repeat;
 				background-position: 10px 5px;
 				height: 38px;
 			}
@@ -115,12 +115,16 @@ hr.line {
 		p.test a:hover {
 			text-decoration: underline;
 		}
+        .container {
+          width: 980px;
+          margin: 0 auto;
+        }
 		
 /* contents */
 /* -------------------------------- */
-#contents {
-	overflow: hidden;
-}
+        #contents {
+	  overflow: hidden;
+        }
 
 	/* menu */
 	/* -------------------------------- */
@@ -156,7 +160,7 @@ hr.line {
 			text-indent: 10px;
 			border-bottom: #f3f3f3 1px solid;
 			cursor: pointer;
-			background: url(../img/common/menu_arrow_down.png) 160px 18px no-repeat;
+			background: url(/assets/menu_arrow_down.png) 160px 18px no-repeat;
 			padding: 12px 15px 12px 0;
 		}
 		dl#acMenu dd {
@@ -176,7 +180,7 @@ hr.line {
 				text-decoration: underline;
 			}
 		dl#acMenu dt.active {
-			background: url(../img/common/menu_arrow_up.png) 160px 18px no-repeat;
+			background: url(/assets/menu_arrow_up.png) 160px 18px no-repeat;
 		}
 		
 		/* バナー */
@@ -221,7 +225,7 @@ hr.line {
 	display: block;
 	border: none;
 	height: 11px;
-	background: url(../img/common/line_bg.gif) repeat;
+	background: url(assets/line_bg.gif) repeat;
 	text-indent: -9999px;
 	margin: 18px 0;
 }
