@@ -4,9 +4,10 @@
      li
        = link_to "トップページ", root_path
      li
-       = link_to ' > トップス', products_path
+       = link_to 'トップス', products_path
        /a href= "../products" トップス 
-     li  > グローバーオールコート
+     li
+       =@product.name
     
 
    hr.line-bg
@@ -20,9 +21,14 @@
          = image_tag @product.image_url, width: '100%'
          / img.main alt="" src="../img/product/tops_04.jpg" /
        ul.stock
-         li.ed
-           p ホワイト
-           p F(残り１点)
+         lo.ed
+           - @product.stocks.each do |stock|
+             p
+             =stock.sku_v_choice_name
+             p
+             =stock.sku_h_choice_name 
+             p
+             =stock.quantity
            a href="#"
              = image_tag 'shoppingcart.png'
              images.shoppingcart alt="" src="../../../../../images/shoppingcart.png" /
@@ -48,7 +54,6 @@
          - @product.images.each do |image|
            li
              = image_tag image.url        
-         lku_v_item_namei　　　　
        table.other-detail
          tbody
            tr

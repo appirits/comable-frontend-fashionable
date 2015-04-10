@@ -95,15 +95,22 @@ html lang="ja" xml:lang="ja" xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http
       = render 'comable/shared/header_for_checkout'
     - else
       = render 'comable/shared/header'
+   
+    #MainSearch
+      .inner
+        input.textBox> name="example" type="text" /
+        input.btn type="submit" value="検索" /
+ 
+   
+    
     #wrap
       main.container
         - flash.each do |name, msg|
           = content_tag(:div, msg, id: "flash_#{name}")
-      
+ 
         = render 'comable/shared/sidebar'
         == yield
 
     = render 'comable/shared/footer'
-
 
 
