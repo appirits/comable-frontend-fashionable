@@ -2,11 +2,11 @@
 /* CSS footer-common */
 
 
-h2 {
+/*h2 {
 	font-size: 24px;
 	font-weight: normal;
 	margin: 0 0 0 20px;
-}
+}*/
 
 h3 {
 	font-size: 16px;
@@ -55,10 +55,10 @@ dl {
 		margin: 0;
 		padding: 0;
 	}
-	/dt {
+	/*dt {
 		font-weight: bold;
 		margin: 20px 0 0 0;
-	}
+	}*/
 	/* リスト */
 	dd li {
 		margin: 5px 0 0 15px;

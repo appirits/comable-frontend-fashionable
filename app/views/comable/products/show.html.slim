@@ -20,15 +20,15 @@
          = image_tag @product.image_url, width: '100%'
          / img.main alt="" src="../img/product/tops_04.jpg" /
        ul.stock
-         li.ed
-           - @product.stocks.each do |stock|
+         - @product.stocks.each do |stock|
+           li.ed
              p =stock.sku_v_choice_name
              p
                =stock.sku_h_choice_name 
                =stock.quantity
-             a href="#"
-               = image_tag 'shoppingcart.png'
-               images.shoppingcart alt="" src="../../../../../images/shoppingcart.png" /
+             = link_to image_tag('shoppingcart.png'),add_cart_path
+               /= image_tag 'shoppingcart.png'
+               /images.shoppingcart alt="" src="../../../../../images/shoppingcart.png" /
 
      /! 詳細側
      .main-detail
@@ -74,7 +74,7 @@
              th ウェスト
              th ヒップ
            tr
-             td フリー
+             td 
              td 80cm
              td 60cm
              td 90cm
