@@ -1,166 +1,116 @@
 #main
-  .information
-    p.title News & TOPICS
-    .box
-      p.date
-        | 2014/12/5
-        span.red 【重要なご連絡】エレコマデモサイト K&Bスタイルでは、 一日ごとにデータリセットを行っております。 登録された情報は一日で消去されますので、ご了承ください。
-      hr.info/
-      p.date
-        | 2014/12/5
-        span
-          | 一部アイテムスペシャルプライス！この機会をお見逃しなく！
-          a href="#"  プライスダウンセール会場はこちら☆
-      hr.info/
-      p.date
-        | 2014/12/5
-        span
-          | 大人気！
-          a href="#" > ダブルボタンガーリーコート（ベージュ）再入荷☆
-          | 数量限定ですので、早い者勝ちです！
-      hr.info/
-      p.date
-        | 2014/12/5
-        span ウィンターセール開催中！
-      hr.info/
-      p.date
-        | 2014/12/5
-        span 冬物一部プライスダウン！本日から期間限定ですので、この機会をお見逃しなく！
-  /! end.information
-  .special
-    a href="#"
-      =image_tag'special01.jpg'
-      images.banner alt="../../../../../images/special01.jpg" /
-    a href="#"
-      =image_tag'special02.jpg'
-      images.banner alt="../../../../../images/special02.jpg" /
-    a href="#"
-      =image_tag'special03.jpg'
-      images.banner alt="../../../../../images/special03.jpg" /
-
-
-
-
-  #product
-    /! New arrival　新着アイテム
-    hr.line-bg/
-    .item-box
-      p.title
-        | New arrival
-        span 新着アイテム
-      .item
-        p.new New
-        a href="onepiece/onepiece_detail_05.html" 
-          img alt="" src="img/product/onepiece_05.jpg" /
+  ul.breadcrumb
+    li
+      = link_to "トップページ", root_path
+    li
+      = link_to 'シューズ', products_path
+      /a href= "../products" トップス
+    li パンプス
+  hr.line-bg/
+  p.result 検索結果：８件
+  .search
+    p.cate 表示件数
+    select
+      option value="20"  20件
+      option value="40"  40件
+      option value="60"  60件
+      option value="100"  100件
+    p.cate 並び替え
+    select
+      option value="新着順"  新着順
+      option value="おすすめ順"  おすすめ順
+      option value="売れ筋順"  売れ筋順
+      option value="価格が高い順"  価格が高い順
+      option value="価格が安い順"  価格が安い順
+    p.cate 在庫の有無
+    select
+      option value="すべて"  すべて
+      option value="在庫ありのみ"  在庫ありのみ
+      option value="在庫なしのみ"  在庫なしのみ
+  ul.pageNav
+    li
+      a href="#"  &laquo; 前
+    li
+      span 1
+    li
+      a href="#"  2
+    li
+      a href="#"  次 &raquo;
+  .box
+    ul.product
+      li
+        .icon
+          p.new New
+          p.repeat 再入荷
+        a href="detail.html" 
+          img alt="" src="img/product/shoes_01.jpg" /
         h2
-          a href="onepiece/onepiece_detail_05.html"  スウェードワンピース(ウェストベルト付き)
-        p.price 6,990円（税込）
-      .item
-        p.new New
-        a href="outer/outer_detail_03.html" 
-          img alt="" src="img/product/outer_03.jpg" /
+          a href="#"  パールヒールオックスフォードシューズ
+        p.price 5,292円(税込)
+      li
+        .icon
+          p.new New
+        a href="detail.html" 
+          img alt="" src="img/product/shoes_01.jpg" /
         h2
-          a href="outer/outer_detail_03.html"  ダブルボタンガーリーコート
+          a href="#"  パールヒールオックスフォードシューズ
+        p.price 5,292円(税込)
+      li
+        .icon
+          p.repeat 再入荷
+        a href="detail.html" 
+          img alt="" src="img/product/shoes_01.jpg" /
+        h2
+          a href="#"  パールヒールオックスフォードシューズ
+        p.price 5,292円(税込)
+      li
+        .icon
+          p.repeat 再入荷
+        a href="detail.html" 
+          img alt="" src="img/product/shoes_01.jpg" /
+        h2
+          a href="#"  パールヒールオックスフォードシューズ
+        p.price 5,292円(税込)
+      li
+        .icon
+          p.repeat 再入荷
+          p.down 値下げ
+        a href="detail.html" 
+          img alt="" src="img/product/shoes_01.jpg" /
+        h2
+          a href="#"  パールヒールオックスフォードシューズ
         p.price
-          s 12,990円（税込）
-          span 30%OFF 9,000円 (税込)
-      .item
-        p.new New
-        a href="accessories/accessories_detail_02.html" 
-          img alt="" src="img/product/accessories_02.jpg" /
+          s 7,990円(税込)
+          span 50%OFF 3,995円 (税込)
+      li
+        .icon
+        a href="detail.html" 
+          img alt="" src="img/product/shoes_01.jpg" /
         h2
-          a href="accessories/accessories_detail_02.html"  サイドステッチファー付き手袋
-        p.price 5,292円（税込）
-      .item
-        p.new New
-        a href="shoes/shoes_detail_06.html" 
-          img alt="" src="img/product/shoes_06.jpg" /
+          a href="#"  パールヒールオックスフォードシューズ
+        p.price 5,292円(税込)
+      li
+        .icon
+        a href="detail.html" 
+          img alt="" src="img/product/shoes_01.jpg" /
         h2
-          a href="shoes/shoes_detail_06.html"  本革ロングブーツ
-        p.price 28,080円（税込）
-    p.more
-      a href="list.html"  > もっと見る
-    /! Re arrival　再入荷アイテム
-    hr.line-bg/
-    .item-box
-      p.title
-        | Re arrival
-        span 再入荷アイテム
-      .item
-        p.repeat 再入荷
-        a href="onepiece/onepiece_detail_05.html" 
-          img alt="" src="img/product/onepiece_05.jpg" /
+          a href="#"  パールヒールオックスフォードシューズ
+        p.price 5,292円(税込)
+      li
+        .icon
+        a href="detail.html" 
+          img alt="" src="img/product/shoes_01.jpg" /
         h2
-          a href="onepiece/onepiece_detail_05.html"  スウェードワンピース(ウェストベルト付き)
-        p.price 6,990円（税込）
-      .item
-        p.repeat 再入荷
-        a href="outer/outer_detail_03.html" 
-          img alt="" src="img/product/outer_03.jpg" /
-        h2
-          a href="outer/outer_detail_03.html"  ダブルボタンガーリーコート
-        p.price
-          s 12,990円（税込）
-          span 30%OFF 9,000円 (税込)
-      .item
-        p.repeat 再入荷
-        a href="accessories/accessories_detail_02.html" 
-          img alt="" src="img/product/accessories_02.jpg" /
-        h2
-          a href="accessories/accessories_detail_02.html"  サイドステッチファー付き手袋
-        p.price 5,292円（税込）
-      .item
-        p.repeat 再入荷
-        a href="shoes/shoes_detail_06.html" 
-          img alt="" src="img/product/shoes_06.jpg" /
-        h2
-          a href="shoes/shoes_detail_06.html"  本革ロングブーツ
-        p.price 28,080円（税込）
-    p.more
-      a href="list.html"  > もっと見る
-    /! Ranking
-    hr.line-bg/
-    p.ranking Ranking
-    /! 各アイテム
-    .rank-box
-      .rank
-        img alt="" src="/assets/ranking_icon01.png" /
-      a href="onepiece/onepiece_detail_05.html" 
-        img.product alt="" src="img/product/onepiece_05.jpg" /
-      h2
-        a href="onepiece/onepiece_detail_05.html"  スウェードワンピース(ウェストベルト付き)
-      p.price 6,990円（税込）
-    .rank-box
-      .rank
-        img alt="" src="/assets/ranking_icon02.png" /
-      a href="outer/outer_detail_03.html" 
-        img.product alt="" src="img/product/outer_03.jpg" /
-      h2
-        a href="outer/outer_detail_03.html"  ダブルボタンガーリーコート（ベージュ）
-      p.price
-        s 12,990円（税込）
-        span 30%OFF 9,000円 (税込)
-    .rank-box
-      .rank
-        img alt="" src="/assets/ranking_icon03.png" /
-      a href="shoes/shoes_detail_06.html" 
-        img.product alt="" src="img/product/shoes_06.jpg" /
-      h2
-        a href="shoes/shoes_detail_06.html"  本革ロングブーツ
-      p.price 28,080円（税込）
-  /! end#product
-  #side-banner
-    a href="#" 
-      =image_tag'banner_mm.gif'
-      images.banner alt="../../../../../images/banner_mm.gif" /
-    a href="#" 
-      =image_tag'banner_member.gif'
-      images.banner alt="../../../../../images/banner_member.gif" /
-    a href="#" 
-      =image_tag'bnner_specialprice.jpg'
-      images.banner alt="/assets/banner_specialprice.jpg" /
-    a href="#" 
-      =image_tag'banner_staffsnapblog.jpg'
-      images.banner alt="../../../../assets/banner_staffsnapblog.jpg" /
-  /! end#side-banner
-/! end#main
+          a href="#"  パールヒールオックスフォードシューズ
+        p.price 5,292円(税込)
+  ul.pageNav
+    li
+      a href="#"  &laquo; 前
+    li
+      span 1
+    li
+      a href="#"  2
+    li
+      a href="#"  次 &raquo;
+/! end#mian
+

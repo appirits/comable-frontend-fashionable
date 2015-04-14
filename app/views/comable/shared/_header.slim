@@ -12,11 +12,11 @@
         p 0点　　\ 0-
     p.test
       | 　　　
-      a href="#" 会員登録
+      = link_to '会員登録',comable.customer_path
       | 　｜　
-      a href="#" マイページ
+      = link_to 'マイページ',customer_path
+      /a href="#" マイページ
       | 　｜　
-      a href="#" お気に入り
-      
+      = link_to 'お気に入り',comable.edit_customer_path
 /! end#heder 　
 hr.line/
