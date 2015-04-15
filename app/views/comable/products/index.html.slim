@@ -1,11 +1,12 @@
 #main
-  ul.breadcrumb
-    li
-      = link_to "トップページ", root_path
-    li
-      = link_to 'シューズ', products_path
-      /a href= "../products" トップス
-    li パンプス
+  .row
+    .category.col-sm-2
+      = Comable.t('category')
+      - if @category
+        = listed_categories @category.path, class: 'category-path'
+        = listed_categories @category.children
+      - else
+        = listed_categories Comable::Category.roots
   hr.line-bg/
   p.result 検索結果：８件
   .search
@@ -27,83 +28,25 @@
       option value="すべて"  すべて
       option value="在庫ありのみ"  在庫ありのみ
       option value="在庫なしのみ"  在庫なしのみ
-  ul.pageNav
-    li
-      a href="#"  &laquo; 前
-    li
-      span 1
-    li
-      a href="#"  2
-    li
-      a href="#"  次 &raquo;
+
   .box
-    ul.product
-      li
-        .icon
-          p.new New
-          p.repeat 再入荷
-        a href="detail.html" 
-          img alt="" src="img/product/shoes_01.jpg" /
-        h2
-          a href="#"  パールヒールオックスフォードシューズ
-        p.price 5,292円(税込)
-      li
-        .icon
-          p.new New
-        a href="detail.html" 
-          img alt="" src="img/product/shoes_01.jpg" /
-        h2
-          a href="#"  パールヒールオックスフォードシューズ
-        p.price 5,292円(税込)
-      li
-        .icon
-          p.repeat 再入荷
-        a href="detail.html" 
-          img alt="" src="img/product/shoes_01.jpg" /
-        h2
-          a href="#"  パールヒールオックスフォードシューズ
-        p.price 5,292円(税込)
-      li
-        .icon
-          p.repeat 再入荷
-        a href="detail.html" 
-          img alt="" src="img/product/shoes_01.jpg" /
-        h2
-          a href="#"  パールヒールオックスフォードシューズ
-        p.price 5,292円(税込)
-      li
-        .icon
-          p.repeat 再入荷
-          p.down 値下げ
-        a href="detail.html" 
-          img alt="" src="img/product/shoes_01.jpg" /
-        h2
-          a href="#"  パールヒールオックスフォードシューズ
-        p.price
-          s 7,990円(税込)
-          span 50%OFF 3,995円 (税込)
-      li
-        .icon
-        a href="detail.html" 
-          img alt="" src="img/product/shoes_01.jpg" /
-        h2
-          a href="#"  パールヒールオックスフォードシューズ
-        p.price 5,292円(税込)
-      li
-        .icon
-        a href="detail.html" 
-          img alt="" src="img/product/shoes_01.jpg" /
-        h2
-          a href="#"  パールヒールオックスフォードシューズ
-        p.price 5,292円(税込)
-      li
-        .icon
-        a href="detail.html" 
-          img alt="" src="img/product/shoes_01.jpg" /
-        h2
-          a href="#"  パールヒールオックスフォードシューズ
-        p.price 5,292円(税込)
-  ul.pageNav
+    .product.col-sm-10
+      - @products.each_slice(5) do |products|
+        ul.product
+          - products.each do |product|
+            li.col-sm-4
+              /.icon
+              = link_to comable.product_path(product), class: 'thumbnail' do
+                = image_tag product.image_url, width: '100'
+              .name
+                = link_to product.name, comable.product_path(product)
+              .price
+                = number_to_currency product.price
+ 
+  
+  .text-center
+    = paginate @products, theme: :comable_frontend
+  /ul.pageNav
     li
       a href="#"  &laquo; 前
     li
