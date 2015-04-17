@@ -1,12 +1,19 @@
 #main
+  
   ul.breadcrumb
     li
       = link_to "トップページ",root_path
       | 　&gt;
-    - if @category
-      li
-        = link_to_category @category
+    - if @category.ancestors.present?
+      li 
+        =link_to_category @category.ancestors.first, force_link: true
         | 　&gt;
+    li
+      = link_to_category @category
+    
+    /- if @category.children.each do |child|  
+      li 
+        = link_to_category child, force_link: true 
 
 
 
