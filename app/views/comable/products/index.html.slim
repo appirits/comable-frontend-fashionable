@@ -1,14 +1,20 @@
 #main
-  .row
-    .category.col-sm-2
-      = Comable.t('category')
-      - if @category
-        = listed_categories @category.path, class: 'category-path'
-        = listed_categories @category.children
-      - else
-        = listed_categories Comable::Category.roots
+  ul.breadcrumb
+    li
+      = link_to "トップページ",root_path
+      | 　&gt;
+    - if @category
+      li
+        = link_to_category @category
+        | 　&gt;
+
+
+
   hr.line-bg/
-  p.result 検索結果：８件
+  p.result
+    | 検索結果：
+    = @products.size
+    | 件
   .search
     p.cate 表示件数
     select
