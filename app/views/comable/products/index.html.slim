@@ -2,7 +2,7 @@
   
   ul.breadcrumb
     li
-      = link_to "トップページ",root_path
+      = link_to "トップページ",main_app.top_path
       | 　&gt;
     - if @category.ancestors.present?
       li 
@@ -32,8 +32,8 @@
     p.cate 並び替え
     select
       option value="新着順"  新着順
-      option value="おすすめ順"  おすすめ順
-      option value="売れ筋順"  売れ筋順
+      /option value="おすすめ順"  おすすめ順
+      /option value="売れ筋順"  売れ筋順
       option value="価格が高い順"  価格が高い順
       option value="価格が安い順"  価格が安い順
     p.cate 在庫の有無
@@ -56,17 +56,7 @@
               .price
                 = number_to_currency product.price
  
-  
-  .text-center
+  ul.pageNav
     = paginate @products, theme: :comable_frontend
-  /ul.pageNav
-    li
-      a href="#"  &laquo; 前
-    li
-      span 1
-    li
-      a href="#"  2
-    li
-      a href="#"  次 &raquo;
 /! end#mian
 
