@@ -4,7 +4,7 @@
     li
       = link_to "トップページ",main_app.top_path
       | 　&gt;
-    - if @category.ancestors.present?
+    - if @category.present? && @category.ancestors.present?
       li 
         =link_to_category @category.ancestors.first, force_link: true
         | 　&gt;
@@ -24,11 +24,13 @@
     | 件
   .search
     p.cate 表示件数
-    select
-      option value="20"  20件
-      option value="40"  40件
-      option value="60"  60件
-      option value="100"  100件
+    select#per
+      - if params[:per].present?
+        option value="/comable/products?category_id=#{@category.id}&per=#{params[:per]}" =params[:per] + '件'
+      - for per in [20,40,60,100] 
+        -if params[:per] != per.to_s 
+          option value="/comable/products?category_id=#{@category.id}&per=#{per}" =per.to_s + '件'      
+      
     p.cate 並び替え
     select
       option value="新着順"  新着順
