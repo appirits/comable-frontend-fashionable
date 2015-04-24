@@ -38,4 +38,4 @@ gem 'spring',        group: :development
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 gem 'comable', '0.3.3'
-
+gem 'selectable_attr_rails'

@@ -26,23 +26,26 @@
     p.cate 表示件数
     select#per
       - if params[:per].present?
-        option value="/comable/products?category_id=#{@category.id}&per=#{params[:per]}" =params[:per] + '件'
-      - for per in [20,40,60,100] 
-        -if params[:per] != per.to_s 
-          option value="/comable/products?category_id=#{@category.id}&per=#{per}" =per.to_s + '件'      
+        option value="/comable/products?category_id=#{@category.id}&per=#{params[:per]}" =Product.per_name_by_id(params[:per])
+      - Product.per_options.each do |option|
+        -if params[:per] != option.last.to_s 
+          option value="/comable/products?category_id=#{@category.id}&per=#{option.last}" =option.first      
       
     p.cate 並び替え
-    select
-      option value="新着順"  新着順
-      /option value="おすすめ順"  おすすめ順
-      /option value="売れ筋順"  売れ筋順
-      option value="価格が高い順"  価格が高い順
-      option value="価格が安い順"  価格が安い順
+    select#order_by
+      - if params[:order_by].present? 
+        option value="/comable/products?category_id=#{@category.id}&order_by=#{params[:order_by]}" =Product.order_by_name_by_id(params[:order_by])
+      - Product.order_by_options.each do |option| 
+         -if params[:order_by] != option.last.to_s 
+           option value="/comable/products?category_id=#{@category.id}&order_by=#{option.last}" =option.first
+
     p.cate 在庫の有無
-    select
-      option value="すべて"  すべて
-      option value="在庫ありのみ"  在庫ありのみ
-      option value="在庫なしのみ"  在庫なしのみ
+    select#stock
+      - if params[:stock].present?
+        option value="/comable/products?category_id=#{@category.id} &stock=#{params[:stock]}" =Product.stock_name_by_id(params[:stock])
+      - Product.stock_options.each do |option|
+        -if params[:stock] != option.last.to_s
+          option value="/comable/products?category_id=#{@category.id}&stock=#{option.last}" =option.first
 
   .box
     .product.col-sm-10
