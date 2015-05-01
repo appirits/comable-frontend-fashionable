@@ -11,8 +11,6 @@ html lang="ja" xml:lang="ja" xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http
     meta content="no-cache" http-equiv="cache-control" /
     meta content="description" name="description" /
     meta content="keywords" name="keywords" /
-    link href="../css/common.css" rel="stylesheet" type="text/css" /
-    link href="../css/detail.css" rel="stylesheet" type="text/css" /
     title comable
 
     title = current_store.name
@@ -30,20 +28,28 @@ html lang="ja" xml:lang="ja" xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http
 
     css:
       .hidden { display: none; }
-    
+    = stylesheet_link_tag "comable/common", media: "all"
+    = stylesheet_link_tag "comable/#{controller_name}", media: "all"
+    /= stylesheet_link_tag "#{controller_name}/#{action_name}", media: "all"
+ 
     = render 'comable/shared/header'  
-    #MainSearch
-      .inner
-        input.textBox> name="example" type="text" /
-        input.btn type="submit" value="検索" /
+
+    - seach_and_side_flag = controller_name == 'orders' || devise_controller?
+    - unless seach_and_side_flag
+      #MainSearch
+        .inner
+          input.textBox> name="example" type="text" /
+          input.btn type="submit" value="検索" /
     
     #wrap
       main.container
         - flash.each do |name, msg|
           = content_tag(:div, msg, id: "flash_#{name}")
  
-        = render 'comable/shared/sidebar'
+        - unless seach_and_side_flag
+          = render 'comable/shared/sidebar'
+
         == yield
 
     = render 'comable/shared/footer'
- 
+    

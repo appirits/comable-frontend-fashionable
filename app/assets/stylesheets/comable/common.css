@@ -221,7 +221,7 @@ hr.line {
 	display: block;
 	border: none;
 	height: 11px;
-	background: url(assets/line_bg.gif) repeat;
+	background: url(/assets/line_bg.gif) repeat;
 	text-indent: -9999px;
 	margin: 18px 0;
 }
