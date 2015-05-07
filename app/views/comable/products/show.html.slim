@@ -26,7 +26,23 @@
              p
                =stock.sku_h_choice_name 
                =stock.quantity
-             = link_to image_tag('shoppingcart.png'),add_cart_path
+
+
+         = form_tag comable.add_cart_path do
+           - if @product.sku?
+             .sku
+               = sku_table @product
+
+           - if @product.unsold?
+             .add_cart.form-inline.form-group
+               = hidden_field_tag :product_id, @product.id
+               = select_tag :quantity, options_for_select(1.upto(10).to_a)
+               = submit_tag Comable.t('add_to_cart')
+           - else
+             .sold_out
+               = Comable.t('soldout')
+ 
+             /= link_to image_tag('shoppingcart.png'), comable.add_cart_path
                /= image_tag 'shoppingcart.png'
                /images.shoppingcart alt="" src="../../../../../images/shoppingcart.png" /
 

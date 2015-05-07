@@ -35,6 +35,7 @@ html lang="ja" xml:lang="ja" xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http
     = render 'comable/shared/header'  
 
     - seach_and_side_flag = controller_name == 'orders' || devise_controller?
+    - seach_and_side_flag = controller_name == 'carts' || devise_controller?
     - unless seach_and_side_flag
       #MainSearch
         .inner
