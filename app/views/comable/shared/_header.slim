@@ -1,17 +1,16 @@
 #header
   h1
     =link_to image_tag('logo.gif'),main_app.top_path
-    /a href="root_path" 
   .member-info
     .cart
-      .inner-bg
-        p 0点　　\ 0-
+      = link_to comable.cart_path do
+        .inner-bg
+          p 0点　　\ 0-
     p.test
       | 　　　
       = link_to '会員登録',comable.customer_path
       | 　｜　
-      /= link_to 'マイページ',customer_session_path
-      /a href="#" マイページ
+      = link_to 'マイページ',comable.customer_session_path
       | 　｜　
       = link_to 'お気に入り',comable.edit_customer_path
 /! end#heder

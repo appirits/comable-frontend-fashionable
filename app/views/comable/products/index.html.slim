@@ -8,8 +8,9 @@
       li 
         =link_to_category @category.ancestors.first, force_link: true
         | 　&gt;
-    li
-      = link_to_category @category
+    - if @category.present?
+      li
+        = link_to_category @category
     
     /- if @category.children.each do |child|  
       li 
@@ -25,27 +26,49 @@
   .search
     p.cate 表示件数
     select#per
-      - if params[:per].present?
-        option value="/comable/products?category_id=#{@category.id}&per=#{params[:per]}" =Product.per_name_by_id(params[:per])
-      - Product.per_options.each do |option|
-        -if params[:per] != option.last.to_s 
-          option value="/comable/products?category_id=#{@category.id}&per=#{option.last}" =option.first      
-      
+      - if @category.present?
+        - if params[:per].present?
+          option value="/comable/products?category_id=#{@category.id}&per=#{params[:per]}" =Product.per_name_by_id(params[:per])
+        - Product.per_options.each do |option|
+          -if params[:per] != option.last.to_s 
+            option value="/comable/products?category_id=#{@category.id}&per=#{option.last}" =option.first      
+      -else
+        - if params[:per].present?
+          option value="/comable/products?per=#{params[:per]}" =Product.per_name_by_id(params[:per])
+        - Product.per_options.each do |option|
+          -if params[:per] != option.last.to_s 
+            option value="/comable/products?per=#{option.last}" =option.first      
     p.cate 並び替え
-    select#order_by
-      - if params[:order_by].present? 
-        option value="/comable/products?category_id=#{@category.id}&order_by=#{params[:order_by]}" =Product.order_by_name_by_id(params[:order_by])
-      - Product.order_by_options.each do |option| 
-         -if params[:order_by] != option.last.to_s 
-           option value="/comable/products?category_id=#{@category.id}&order_by=#{option.last}" =option.first
+    select#order_byi
+      - if @cotegory.present?
+        - if params[:order_by].present? 
+            option value="/comable/products?category_id=#{@category.id}&order_by=#{params[:order_by]}" =Product.order_by_name_by_id(params[:order_by])
+        - Product.order_by_options.each do |option| 
+           -if params[:order_by] != option.last.to_s 
+             option value="/comable/products?category_id=#{@category.id}&order_by=#{option.last}" =option.first
+      -else
+        - if params[:order_by].present?
+          option value="/comable/products?category_id=#order_by=#{params[:order_by]}" =Product.order_by_name_by_id(params[:order_by])
+        - Product.order_by_options.each do |option|
+           -if params[:order_by] != option.last.to_s
+             option value="/comable/products?category_id=#order_by=#{option.last}" =option.first
+
 
     p.cate 在庫の有無
-    select#stock
-      - if params[:stock].present?
-        option value="/comable/products?category_id=#{@category.id} &stock=#{params[:stock]}" =Product.stock_name_by_id(params[:stock])
-      - Product.stock_options.each do |option|
-        -if params[:stock] != option.last.to_s
-          option value="/comable/products?category_id=#{@category.id}&stock=#{option.last}" =option.first
+    select#stocki
+      - if @cotegory.present?
+        - if params[:stock].present?
+          option value="/comable/products?category_id=#{@category.id} &stock=#{params[:stock]}" =Product.stock_name_by_id(params[:stock])
+        - Product.stock_options.each do |option|
+          -if params[:stock] != option.last.to_s
+            option value="/comable/products?category_id=#{@category.id}&stock=#{option.last}" =option.first
+
+      -else
+        - if params[:stock].present?
+          option value="/comable/products?category_id=#stock=#{params[:stock]}" =Product.stock_name_by_id(params[:stock])
+        - Product.stock_options.each do |option|
+          -if params[:stock] != option.last.to_s
+            option value="/comable/products?category_id=#stock=#{option.last}" =option.first
 
   .box
     .product.col-sm-10
