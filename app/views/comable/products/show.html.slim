@@ -4,47 +4,38 @@
      li
        = link_to "トップページ", main_app.top_path
      li
+       span > 
        = link_to 'トップス', products_path
-       /a href= "../products" トップス 
      li
+       span > 
        =@product.name
-    
    hr.line-bg
-
 
    #ProductDetailArea
 
      /! 画像側
      .main-product
        .sample
-         = image_tag @product.image_url, width: '100%'
-         / img.main alt="" src="../img/product/tops_04.jpg" /
+         = image_tag @product.image_url, class: 'main', width: '100%'
        ul.stock
          - @product.stocks.each do |stock|
-           li.ed
-             p =stock.sku_v_choice_name
-             p
-               =stock.sku_h_choice_name 
-               =stock.quantity
-
-
-         = form_tag comable.add_cart_path do
-           - if @product.sku?
-             .sku
-               = sku_table @product
-
-           - if @product.unsold?
-             .add_cart.form-inline.form-group
-               = hidden_field_tag :product_id, @product.id
-               = select_tag :quantity, options_for_select(1.upto(10).to_a)
-               = submit_tag Comable.t('add_to_cart')
-           - else
-             .sold_out
-               = Comable.t('soldout')
- 
-             /= link_to image_tag('shoppingcart.png'), comable.add_cart_path
-               /= image_tag 'shoppingcart.png'
-               /images.shoppingcart alt="" src="../../../../../images/shoppingcart.png" /
+           = form_tag comable.add_cart_path do
+             li.ed
+               p =stock.sku_v_choice_name
+               p
+                 =stock.sku_h_choice_name 
+                 | （
+                 =stock.quantity
+                 | ）
+               - if stock.unsold?
+                 .add_cart.form-inline.form-group
+                   = hidden_field_tag :stock_id, stock.id
+                   = hidden_field_tag :product_id, @product.id
+                   = select_tag :quantity, options_for_select(1.upto(10).to_a)
+                   = image_submit_tag 'shoppingcart.png'
+               - else
+                 .sold_out
+                   = Comable.t('soldout')
 
      /! 詳細側
      .main-detail
@@ -55,7 +46,7 @@
          | 商品番号：
          = @product.code
            / 商品番号：
-       h2 = @product.name
+       h2 =@product.name
        p.price = number_to_currency @product.price
        p.title Detail
        ul.DetailColor
