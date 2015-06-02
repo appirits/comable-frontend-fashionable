@@ -1,0 +1,53 @@
+#wrap
+  h2 ショッピングカート
+  hr.line-bg
+  - if current_customer.cart.errors.any?
+    .errors
+      ul
+        - current_customer.cart.errors.full_messages.each do |message|
+          li = message
+  - if current_customer.cart.empty?
+    = Comable.t('carts.empty')
+  - else
+    table.cart
+      tr
+        th 商品画像
+        th 品番・品名・詳細
+        th 数量
+        th 単価（税込）
+        th 小計
+        th 削除
+      - current_customer.cart.each do |cart_item|
+        - stock = cart_item.stock
+        - product = stock.product
+        tr
+          td.center
+            = link_to image_tag(product.image_url, width: '100'), comable.product_path(product)
+          td
+            .code
+              = product.code
+            .name
+              = stock.name_with_sku
+            .caption
+              = product.caption
+            - if cart_item.soldout_stock?
+              .error.soldout = Comable.t('carts.soldout')
+          td.center
+            = form_tag comable.cart_path, method: :put do
+              .form-inline.form-group
+                - selected = cart_item.quantity
+                = select_tag :quantity, options_for_select(1.upto([10, selected].max).to_a, selected)
+                = hidden_field_tag :stock_id, stock.id
+                = submit_tag Comable.t('actions.update'), class: 'btn-default'
+          td.right
+            = number_to_currency product.price
+          td.right
+            = number_to_currency product.price*cart_item.quantity
+          td.center
+            = link_to image_tag('/assets/bt_delete.png'), comable.cart_path(stock_id: stock.id), method: :delete
+    .btn-inner
+      = form_for current_order, as: :order, url: comable.checkout_cart_path, method: :put do |f|
+        = f.submit "ご注文画面へすすむ", class: 'btn btn-primary btn-lg btn-block'
+
+/! end#wrap
+
