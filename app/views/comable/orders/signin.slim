@@ -1,0 +1,89 @@
+#wrap
+  - if @order.errors.any?
+    .error_messages
+      ul
+        - @order.errors.full_messages.each do |full_message|
+          li = full_message
+
+  h2 ショッピングカート：注文者情報入力（新規会員登録）
+  hr.line-bg/
+  .step
+    img alt="" src="/assets/step_01.gif" 
+  table.cart
+    tr
+      th 商品画像
+      th 品番・品名・詳細
+      th 数量
+      th 単価（税込）
+      th 小計
+      th 削除
+    - @order.order_details.each do |order_detail|
+      - stock = order_detail.stock
+      - product = stock.product
+      tr
+        td.center
+          = link_to image_tag(product.image_url, width: '100'), comable.product_path(product)
+        td
+          .code
+            = product.code
+          .name
+            = link_to stock.name_with_sku, comable.product_path(product)
+          .caption
+            = product.caption
+          - if order_detail.soldout_stock?
+            .error.soldout = Comable.t('carts.soldout')
+        td.center
+          = order_detail.quantity
+        td.right
+          = number_to_currency product.price
+        td.right
+          = number_to_currency current_customer.cart.price
+        td.center
+          = link_to image_tag('/assets/bt_delete.png'), comable.cart_path(stock_id: stock.id), method: :delete
+    tr
+      td 合計
+      td.right colspan="5"
+        = number_to_currency @order.current_item_total_price
+
+  section.member
+    = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+      .login-box 
+        p.login 会員の方
+        tr
+          th
+            span ログインID
+          td
+            = f.email_field :email, autofocus: true, class: 'id-pass'
+        tr
+          th
+            span パスワード
+          td
+            = f.password_field :password, autocomplete: "off", class: 'id-pass' 
+        p.bt-login
+          = image_submit_tag "/assets/bt_login.png", :class=>'bt-login'
+        p.forget
+          = link_to "パスワードをお忘れの方はこちら", comable.new_customer_password_path
+    .member-box
+      p.login 初めての方（新規会員登録）
+      p
+        | 無料で新規会員登録ができます。
+        br
+        |
+        br
+        | 会員登録をすると便利なMyページをご利用いただけます。また、ログインするだけで、毎回お名前や住所などを入力することなくスムーズにお買い物をお楽しみいただけます。
+      .bt-member
+        = link_to image_tag('/assets/bt_member.png'), comable.new_customer_registration_path
+  p.center 会員登録をしないで商品を購入される方は、こちらより購入手続きが行えます。
+  .btn-inner
+    = form_for @order, as: :order, url: comable.guest_order_path, method: :put do |f|
+      .form-group
+        .col-sm-2.control-label
+          | ▼メールアドレスを入力してください
+        .col-sm-10
+          = f.email_field :email, placeholder: @order.class.human_attribute_name(:email), class: 'id-pass'
+      = f.submit "会員登録をしないで購入手続き", class: 'btn'
+  p.center
+    = link_to "買い物を続ける",main_app.top_path
+/! end#wrap
+
+
