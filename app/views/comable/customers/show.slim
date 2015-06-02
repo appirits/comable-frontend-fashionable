@@ -1,0 +1,35 @@
+#comable-customer
+  h2 マイページ：注文履歴
+  hr.line-bg/
+  .my-menu
+    p
+      span >>> 
+      = link_to '注文履歴', comable.customer_registration_path
+    p
+      span >>> 
+      = link_to "メールアドレス・パスワード変更", comable.edit_customer_path
+    p
+      span >>> 
+      = link_to "アドレス帳編集", comable.addresses_customer_path
+
+  .my-contents
+    - if current_customer.cart.empty?
+      = Comable.t('carts.empty')
+    - else
+      table.history
+        tboby
+          tr
+            th ご注文日時
+            th ご注文番号
+            th ご注文状態
+        - @orders.each do |order|
+            tr
+              td
+                = l order.completed_at.to_date, format: :long
+              td
+                = order.code
+              td
+                = order.state
+
+    ul.pageNav
+      = paginate @orders, theme: :comable_frontend
