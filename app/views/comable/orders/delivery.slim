@@ -1,0 +1,52 @@
+#comable-order
+  .comable-ship_address
+    h2 配送先住所
+    hr.line-bg/
+    .step
+      img alt="" src="/assets/step_01.gif"
+    - if @order.ship_address.try(:persisted?)
+      = render 'comable/shared/address', address: @order.ship_address
+      = link_to Comable.t('next_step'), next_order_path
+
+      .edit.row
+        h2
+          = Comable.t('edit_shipping_address')
+        = form_for @order, as: :order, url: update_order_path, method: :put do |f|
+          = f.fields_for :ship_address do |ff|
+            = render 'comable/shared/address_form', address: ff
+          = f.submit Comable.t('next_step')
+
+      - if current_customer.other_addresses.any?
+        .other_addresses.row
+          h2
+            = Comable.t('other_addresses')
+          ul.list-unstyled
+            - current_customer.addresses.each do |address|
+              - next if @order.ship_address.same_as? address
+              li.col-sm-4
+                = render 'comable/shared/address', address: address
+                = form_for @order, as: :order, url: update_order_path, method: :put do |f|
+                  .hidden
+                    = f.fields_for :ship_address, address.clone do |ff|
+                      = render 'comable/shared/address_form', address: ff
+                  = f.submit Comable.t('use_this_address'), class: 'btn btn-default'
+
+    - else
+      / TODO: Standardize
+      - if @order.errors.any?
+        .error_messages
+          ul
+            - @order.errors.full_messages.each do |full_message|
+              li = full_message
+
+      .new
+      = form_for @order, as: :order, url: update_order_path, method: :put do |f|
+        table.nonmember-ordre
+          - @order.ship_address ||= @order.build_ship_address
+          = form_for @order, as: :order, url: update_order_path, method: :put do |f|
+            = f.fields_for :ship_address do |ff|
+              = render 'comable/shared/address_form', address: ff
+     
+        .button-box
+          = link_to '戻る',comable.signin_order_path, class: 'prv-next'
+          = f.submit '次へ', class: 'prv-next'

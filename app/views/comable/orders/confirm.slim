@@ -1,0 +1,80 @@
+#wrap
+  h2
+    = @order.class.human_state_name(:confirm)
+  hr.line-bg/
+  .step
+    img alt="" src="/assets/step_03.gif" /
+
+  table.cart
+    tr
+      th 商品画像
+      th 品番・品名・詳細
+      th 数量
+      th 単価（税込）
+      th 小計
+      th 削除
+    - @order.order_details.each do |order_detail|
+      - stock = order_detail.stock
+      - product = stock.product
+      tr
+        td.center
+          = link_to image_tag(product.image_url, width: '100'), comable.product_path(product)
+        td
+          .code
+            = product.code
+          .name
+            = stock.name_with_sku
+          .caption
+            = product.caption
+          - if order_detail.soldout_stock?
+            .error.soldout = Comable.t('carts.soldout')
+        td.center
+          = order_detail.quantity
+        td.right
+          = number_to_currency product.price
+        td.right
+          = number_to_currency product.price*order_detail.quantity
+        td.center
+          = link_to image_tag('/assets/bt_delete.png'), comable.cart_path(stock_id: stock.id), method: :delete
+    tr
+      td 合計
+      td.right colspan="5"
+        = number_to_currency @order.current_item_total_price
+    tr
+      td 送料
+      td.right colspan="5"  
+        = number_to_currency @order.current_shipment_fee
+    tr
+      td 総額
+      td.right colspan="5"
+        = number_to_currency @order.current_total_price
+
+
+  p.title 注文者情報
+  .box
+    table.nonmember-ordre
+      tr
+        = render 'comable/shared/address', address: @order.ship_address
+
+      tr
+        th メールアドレス
+        td
+          .comable-email
+            = @order.email
+
+  p.title 決済方法等
+  .box
+    p
+      span
+        = @order.payment_method.name
+
+  p.title 配送方法
+  .box
+    p
+      span
+        = @order.shipment_method.name
+  .btn-inner
+    th colspan="2"
+      = form_for @order, as: :order, url: comable.order_path, method: :post do |f|
+        = f.submit 'この内容で注文する', class: 'btn'
+
