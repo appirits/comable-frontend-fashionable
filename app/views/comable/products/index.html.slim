@@ -21,7 +21,7 @@
   hr.line-bg/
   p.result
     | 検索結果：
-    = @products.size
+    = @products.total_count
     | 件
   .search
     p.cate 表示件数
@@ -83,8 +83,7 @@
                 = link_to product.name, comable.product_path(product)
               .price
                 = number_to_currency product.price
- 
-  ul.pageNav
-    = paginate @products, theme: :comable_frontend
+    ul.pageNav
+      = paginate @products, theme: :comable_frontend
 /! end#mian
 
