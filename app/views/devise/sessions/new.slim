@@ -1,0 +1,32 @@
+#wrap
+  h2 ログイン
+  hr.line-bg/
+  section
+    = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+      p.title 会員の方
+      table.login
+        tbody
+          tr
+            th 会員ID（メールアドレス） 
+            td
+              = f.email_field :email, autofocus: true, style: 'width:300px'
+              | 　半角英数字
+          tr
+            th 
+              = f.label :password
+            td
+              = f.password_field :password, autocomplete: "off", style: 'width:300px'
+              | 　半角英数字　　　
+              span
+              = link_to "パスワードをお忘れの方はこちら>>>", comable.new_customer_password_path
+        tr
+      .bt-box
+        = f.submit "ログイン", class: 'btn'
+    p.title 初めてご利用の方（新規会員登録）
+    p.left
+      | 無料で新規会員登録ができます。
+      br
+      | 会員登録をすると便利なMyページをご利用いただけます。また、ログインするだけで、毎回お名前や住所などを入力することなくスムーズにお買い物をお楽しみいただけます。
+    .bt-box
+      = link_to "新規会員登録(無料)", comable.new_customer_registration_path, class: 'btn'
+/! end#wrap
