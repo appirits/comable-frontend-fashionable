@@ -1,0 +1,67 @@
+h2 新規会員登録
+hr.line-bg/
+= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+  = devise_error_messages!
+.customer
+  .addresses
+    - if current_customer.errors.any?
+      .errors
+        ul
+          - current_customer.errors.full_messages.each do |full_message|
+            li = full_message
+
+    - if current_customer.addresses.empty?
+      .not_found
+        p
+          = Comable.t('not_found')
+    - else
+      .row
+        .bill_address.col-sm-6
+          h2
+            = current_customer.class.human_attribute_name(:bill_address)
+          - if current_customer.bill_address
+            = render 'address', address: current_customer.bill_address
+          - else
+            .not_found
+              p
+                = Comable.t('not_found')
+
+        .ship_address.col-sm-6
+          h2
+            = current_customer.class.human_attribute_name(:ship_address)
+          - if current_customer.ship_address
+            = render 'address', address: current_customer.ship_address
+          - else
+            .not_found
+              p
+                = Comable.t('not_found')
+
+      .row
+        .other_addresses
+          h2
+            = Comable.t('other_addresses')
+          ul.list-unstyled
+            - current_customer.other_addresses.each do |address|
+              li.col-sm-4
+                = render 'address', address: address
+
+
+  = form_for current_customer, as: :customer, url: comable.customer_path, method: :post do |f|
+    table.new-member
+      .tbody
+        = f.fields_for :addresses, current_customer.addresses.build do |ff|
+          = render 'comable/shared/address_form', address: ff
+        tr
+          th
+            span ※
+            = f.label :email
+          td
+            = f.email_field :email, autofocus: true, style: 'width:250px'
+        tr 
+          th
+            span ※
+            = f.label :password
+          td
+            = f.password_field :password, autocomplete: "off", style: 'width:250px'
+    .btn-inner
+      = f.submit Comable.t('actions.create'), class: 'btn_new_member'
