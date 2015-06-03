@@ -82,6 +82,7 @@ hr.line {
 }
 	#header h1 {
 		width: 205px;
+                height: 41px;
 		float: left;
 		margin: 34px 0 0 0;
 	}
@@ -107,6 +108,9 @@ hr.line {
 				font-size: 14px;
 				padding: 12px 10px 0 0;
 			}
+                        .member-info .cart a {
+                                color: #000;
+                        }
 		/* メンバー情報 */
 		#header .member-info p.test a {
 			font-size: 14px;

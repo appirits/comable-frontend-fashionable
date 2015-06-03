@@ -39,7 +39,7 @@ table.new-member {
 		padding: 5px 20px;
 	}
 	table.new-member th span {
-		color: #e71f19; 
+		color: #e71f19;
 	}
 	/* td */
 	table.new-member td {
@@ -69,9 +69,9 @@ table.new-member {
 	background-position: 18px 49%;
 	color:#ffffff;
 	display:inline-block;
- 	-webkit-box-shadow:inset 1px 1px 0px 0px #cccccc;
- 	-moz-box-shadow:inset 1px 1px 0px 0px #cccccc;
- 	box-shadow:inset 1px 1px 0px 0px #cccccc;
+	-webkit-box-shadow:inset 1px 1px 0px 0px #cccccc;
+	-moz-box-shadow:inset 1px 1px 0px 0px #cccccc;
+	box-shadow:inset 1px 1px 0px 0px #cccccc;
 }
 .btn_new_member:hover {
 	opacity: 0.8;

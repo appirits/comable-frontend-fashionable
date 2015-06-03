@@ -46,7 +46,7 @@
           = form_for @order, as: :order, url: update_order_path, method: :put do |f|
             = f.fields_for :ship_address do |ff|
               = render 'comable/shared/address_form', address: ff
-     
+
         .button-box
           = link_to '戻る',comable.signin_order_path, class: 'prv-next'
           = f.submit '次へ', class: 'prv-next'

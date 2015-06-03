@@ -3,7 +3,7 @@
     h2 注文者情報入力
     hr.line-bg
     .step
-      img alt="" src="/assets/step_01.gif" 
+      img alt="" src="/assets/step_01.gif"
     - if @order.bill_address.try(:persisted?)
       .comable-email
         = @order.email
@@ -60,13 +60,13 @@
               tr
                 th
                   .col-sm-2.control-label
-                    span> ※
+                    span ※
                     = f.label :email
                 td
                   .col-sm-10
                     = f.email_field :email, placeholder: @order.class.human_attribute_name(:email), style: 'width:500px'
               = f.fields_for :bill_address do |ff|
                 = render 'comable/shared/address_form', address: ff
-          .button-box 
+          .button-box
             = link_to '戻る',comable.signin_order_path, class: 'prv-next'
             = f.submit '次へ', class: 'prv-next'

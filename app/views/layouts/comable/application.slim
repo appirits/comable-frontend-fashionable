@@ -30,19 +30,13 @@ html lang="ja" xml:lang="ja" xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http
       .hidden { display: none; }
     = stylesheet_link_tag "comable/common", media: "all"
     = stylesheet_link_tag "comable/#{controller_name}", media: "all"
-    /= stylesheet_link_tag "#{controller_name}/#{action_name}", media: "all"
  
     = render 'comable/shared/header'  
 
-    
     - seach_and_side_flag = ['customers','orders','carts'].include?(controller_name) || devise_controller?
 
 
     - unless seach_and_side_flag
-      #MainSearch
-        .inner
-          input.textBox> name="example" type="text" /
-          input.btn type="submit" value="検索" /
     
     #wrap
       main.container

@@ -30,21 +30,21 @@
         - if params[:per].present?
           option value="/comable/products?category_id=#{@category.id}&per=#{params[:per]}" =Product.per_name_by_id(params[:per])
         - Product.per_options.each do |option|
-          -if params[:per] != option.last.to_s 
-            option value="/comable/products?category_id=#{@category.id}&per=#{option.last}" =option.first      
+          -if params[:per] != option.last.to_s
+            option value="/comable/products?category_id=#{@category.id}&per=#{option.last}" =option.first
       -else
         - if params[:per].present?
           option value="/comable/products?per=#{params[:per]}" =Product.per_name_by_id(params[:per])
         - Product.per_options.each do |option|
-          -if params[:per] != option.last.to_s 
-            option value="/comable/products?per=#{option.last}" =option.first      
+          -if params[:per] != option.last.to_s
+            option value="/comable/products?per=#{option.last}" =option.first
     p.cate 並び替え
     select#order_byi
       - if @cotegory.present?
-        - if params[:order_by].present? 
+        - if params[:order_by].present?
             option value="/comable/products?category_id=#{@category.id}&order_by=#{params[:order_by]}" =Product.order_by_name_by_id(params[:order_by])
-        - Product.order_by_options.each do |option| 
-           -if params[:order_by] != option.last.to_s 
+        - Product.order_by_options.each do |option|
+           -if params[:order_by] != option.last.to_s
              option value="/comable/products?category_id=#{@category.id}&order_by=#{option.last}" =option.first
       -else
         - if params[:order_by].present?

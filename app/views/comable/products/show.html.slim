@@ -4,10 +4,10 @@
      li
        = link_to "トップページ", main_app.top_path
      li
-       span > 
+       span >
        = link_to 'トップス', products_path
      li
-       span > 
+       span >
        =@product.name
    hr.line-bg
 
@@ -23,7 +23,7 @@
              li.ed
                p =stock.sku_v_choice_name
                p
-                 =stock.sku_h_choice_name 
+                 =stock.sku_h_choice_name
                  | （
                  =stock.quantity
                  | ）
@@ -53,7 +53,6 @@
          - @product.images.each do |image|      
            li
              = image_tag image.url
-           /img alt="" src="../img/product/tops_04.jpg" /
        p.title Color
        ul.DetailColor
          - @product.images.each do |image|

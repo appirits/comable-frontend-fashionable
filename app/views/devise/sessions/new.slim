@@ -7,12 +7,12 @@
       table.login
         tbody
           tr
-            th 会員ID（メールアドレス） 
+            th 会員ID（メールアドレス）
             td
               = f.email_field :email, autofocus: true, style: 'width:300px'
               | 　半角英数字
           tr
-            th 
+            th
               = f.label :password
             td
               = f.password_field :password, autocomplete: "off", style: 'width:300px'

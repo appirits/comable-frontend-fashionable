@@ -21,7 +21,7 @@ $ ->
     #
     $('select#per').change ->
       location.href= $(this).val()
-     
+
   #並び替え（新着、価格）
   $ ->
     #
