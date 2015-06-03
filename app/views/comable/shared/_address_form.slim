@@ -1,0 +1,60 @@
+tr
+  th
+    span ※ 
+    = address.label :full_name
+  td
+    | 姓　
+    = address.text_field :family_name
+    | 　名　
+    = address.text_field :first_name
+tr
+  th
+    .col-sm-2.control-label
+      span ※
+      = address.label :zip_code
+  td
+    .col-sm-10
+      span> 〒
+      = address.text_field :zip_code
+      br
+      span 例：151-0021
+tr
+  th
+    .col-sm-2.control-label
+      span> ※
+      = address.label :state_name
+  td
+    .col-sm-10
+      = address.text_field :state_name, style: 'width:250px'
+      br
+      span 例：東京都
+tr
+  th
+    .col-sm-2.control-label
+      span> ※
+      = address.label :city  
+  td
+    .col-sm-10
+      = address.text_field :city, style: 'width:250px'
+      br
+      span> 例：渋谷区恵比寿西
+tr
+  th
+    .col-sm-2.control-label
+      |  番地・建物名・部屋番号
+  td
+    .col-sm-10
+      = address.text_field :detail, style: 'width:250px'
+      br
+      span> 例：1-1-1 エレコマビル5F
+tr
+  th
+    .col-sm-2.control-label
+      = address.label :phone_number
+  td
+    .col-sm-10
+      = address.text_field :phone_number, max_length: 18, style: 'width:250px'
+      br
+      span> 携帯可
+
+
