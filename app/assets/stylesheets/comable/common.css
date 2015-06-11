@@ -247,6 +247,11 @@ ul.pan {
 		
 /* Page TOP */
 /* -------------------------------- */	
+#pagetop {
+  margin: -5px auto;
+  overflow: hidden;
+  width: 980px;
+}
 .pagetop {
 	float: right;
 	margin: 40px 0 0 0;
