@@ -39,3 +39,5 @@ gem 'spring',        group: :development
 # gem 'debugger', group: [:development, :test]
 gem 'comable', '0.3.3'
 gem 'selectable_attr_rails'
+gem 'rails-i18n', '~> 4.0.0'
+gem 'devise-i18n', '~> 0.12.0'
