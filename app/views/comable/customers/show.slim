@@ -13,8 +13,8 @@
       = link_to "アドレス帳編集", comable.addresses_customer_path
 
   .my-contents
-    - if current_customer.cart.empty?
-      = Comable.t('carts.empty')
+    - if current_customer.orders.empty?
+      = Comable.t('orders.empty')
     - else
       table.history
         tboby
