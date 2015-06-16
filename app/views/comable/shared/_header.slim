@@ -3,17 +3,14 @@
   .member-info
     .cart
       = link_to comable.cart_path do
-      .inner-bg
-        - if current_customer.cart.present?
-          - current_customer.cart.each do |cart_item|
-            - stock = cart_item.stock
-            - product = stock.product
+        .inner-bg
+          - if current_customer.cart.present?
             p
-              = cart_item.quantity
-              span 点　　\
-              = number_with_delimiter product.price*cart_item.quantity
+              = current_customer.cart.count
+              span 点　　&yen
+              = number_to_currency current_customer.cart.price
               span -
-        - else
+          - else
             p 0 点　　&yen 0-
     p.test
       | 　　　

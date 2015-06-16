@@ -5,7 +5,7 @@
        = link_to "トップページ", main_app.top_path
      li
        span >
-       = link_to 'トップス', products_path
+       /=@category.name
      li
        span >
        =@product.name
@@ -41,11 +41,9 @@
      .main-detail
        .icon
          p.new New
-         p.repeat 再入荷
        p.lot-number
          | 商品番号：
          = @product.code
-           / 商品番号：
        h2 =@product.name
        p.price = number_to_currency @product.price
        p.title Detail
@@ -53,64 +51,9 @@
          - @product.images.each do |image|      
            li
              = image_tag image.url
-       p.title Color
-       ul.DetailColor
-         - @product.images.each do |image|
-           li
-             = image_tag image.url        
-       table.other-detail
-         tbody
-           tr
-             th 素材
-             td アクリル100%
-           tr
-             th 原産国
-             td 日本製
-           tr
-             th 商品番号
-             td =@product.code
-           tr
-             th ブランド
-             td K＆B
-       table.size
-         tbody
-           tr
-             th サイズ
-             th バスト
-             th ウェスト
-             th ヒップ
-           tr
-             td 
-             td 80cm
-             td 60cm
-             td 90cm
-     /! clear both
      .introduction
    
        p アイテム紹介
        p.text =@product.caption
    hr.dod
-
-
-   .check-item
-     p 最近見たアイテム
-     .inner
-      = image_tag 'shoes_02.jpg'
-      imges.shoppingcart alt="" src="../../../../../../images/shoes_02.jpg" /
-      = image_tag 'tops_01.jpg'
-      imges.shoppingcart alt="" src="../../../../../../images/tops_01.jpg" /
-      = image_tag 'tops_02.jpg'
-      imges.shoppingcart alt="" src="../../../../../../images/tops_02.jpg" /
-
-   .check-item
-     p この商品を見た人はこんな表品もチェックしています
-     .inner
-      = image_tag 'shoes_02.jpg'
-      imges.shoppingcart alt="" src="../../../../../../images/shoes_02.jpg" /
-      = image_tag 'tops_04.jpg'
-      imges.shoppingcart alt="" src="../../../../../../images/tops_04.jpg" /
-      = image_tag 'tops_01.jpg'
-      imges.shoppingcart alt="" src="../../../../../../images/tops_01.jpg" /
-
-
 

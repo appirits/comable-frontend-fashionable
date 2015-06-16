@@ -176,6 +176,7 @@ p.center {
 
 /* ボタン */
 .bt-box {
+	overflow:hidden;
 	background: #ccc;
 	text-align: center;
 	padding: 20px;
@@ -184,6 +185,7 @@ p.center {
 
 /* ログインボタン */
 .btn {
+	float:left;
 	font-size:14px;
 	font-family:Arial;
 	font-weight:normal;
@@ -196,11 +198,27 @@ p.center {
 	background-position: 18px 49%;
 	color:#ffffff;
 	display:inline-block;
+	margin:0 10px 10px 0;
 }
 .btn:hover {
 	opacity: 0.8;
 	filter: alpha(opacity=80);
 	-ms-filter: "alpha( opacity=80 )";
+}
+/* 2015/06/16追加 */
+.btn-center {
+	font-size: 14px;
+	font-family: Arial;
+	font-weight: normal;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	border-radius: 5px;
+	padding: 6px 18px 5px 0;
+  	text-indent: 40px;
+  	background: url(/assets/bt_icon.png) no-repeat #000;
+  	background-position: 18px 49%;
+  	color: #ffffff;
+  	display: inline-block;
 }
 
 /* ページナビ */
