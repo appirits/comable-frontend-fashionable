@@ -1,0 +1,17 @@
+#comable-order
+  h2
+    = @order.class.human_state_name(:complete)
+  hr.line-bg/
+  .step
+    img alt="" src="/assets/step_04.gif" /
+  p.center
+    span
+      | ご注文ありがとうございます。
+      br
+      | 注文番号は下記になります。
+      br
+      span =@order.code
+      br
+      | 商品のお届けまで、もうしばらくお待ちください。
+    = link_to 'TOPに戻る',main_app.top_path
+
