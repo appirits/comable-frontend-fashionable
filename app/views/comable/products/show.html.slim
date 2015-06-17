@@ -1,14 +1,16 @@
-#contents 
+ycontents 
   #main
    ul.breadcrumb
      li
        = link_to "トップページ", main_app.top_path
      li
        span >
-       /=@category.name
-     li
+       - if @product.categories.any?
+         - @product.categories.first.path.each do |category|
+           li = link_to category.name, comable.products_path(category_id: category.id)
+     li.active
        span >
-       =@product.name
+       = @product.name
    hr.line-bg
 
    #ProductDetailArea
