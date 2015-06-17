@@ -218,21 +218,23 @@ ul.pageNav {
                 color: #fff;
                 letter-spacing: 1px;
                 padding: 2px 15px;
-                margin: 0 0 5px 0;
+                margin: 0 0 0 0;
         }
         /* 更新内容 */
-        .information .box {
+        .information .box-info {
                 overflow: scroll;
                 height: 110px;
+                border: 1px solid #f5f5f5;
+                margin: 0
         }
-        .information .box  p.date {
+        .information .box-info  p.date {
                 padding: 0 15px;
                 line-height: 16px;
         }
-                .information .box  p.date span {
+                .information .box-info  p.date span {
                         display: block;
                 }
-                .information .box  p.date span.red {
+                .information .box-info  p.date span.red {
                         color: #e70505;
                 }
         p.date a {
@@ -270,7 +272,7 @@ ul.pageNav {
 /* product */
 /* -------------------------------- */
 #product {
-        width: 565px;
+        width: 777px;
         float: left;
 }
 
@@ -281,7 +283,7 @@ ul.pageNav {
         height: 11px;
         background: url(/assets/line_bg.gif) repeat;
         text-indent: -9999px;
-        margin: 18px 0;
+        margin: 18px 0 0 0;
 }
 /* 入荷アイテム */
 .item-box {
@@ -302,13 +304,13 @@ ul.pageNav {
         }
         /* 商品 */
         .item-box .item {
-                width: 130px;
+                width: 156px;
                 height: 314px;
                 float: left;
                 border-top: #dfdfdf 1px solid;
                 border-right: #dfdfdf 1px solid;
                 border-bottom: #dfdfdf 1px solid;
-                padding: 0 0 0 10px;
+                padding: 0 0 0 37px;
         }
                 .item-box .item img {
                         width: 120px;
@@ -327,7 +329,7 @@ ul.pageNav {
                 .item-box .item p.price {
                         width: 120px;
                         font-size: 10px;
-                        margin: 25px 0 0 0;
+                        margin: 0 0 0 0;
                 }
                         .item p.price span {
                                 color: #e70505;
@@ -471,6 +473,10 @@ p.ranking {
                                                 -ms-filter: "alpha( opacity=80 )";
                                                 background: #fff;
                                         }
+                                         select#quantity{
+                                                vertical-align:0.6em;
+                                                margin:0 10px 0 0;
+                                                }
 
         /* 詳細 */
         /* ------------------------------ */
@@ -655,9 +661,11 @@ hr.dod {
 }
 
 h2 {
+        width: 120px;
         font-size: 24px;
         font-weight: normal;
-        margin: 0 0 0 20px;
+        line-height: 10px;
+        margin: 0 0 0 20px 0;
 }
 
 h3 {

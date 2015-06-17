@@ -36,8 +36,9 @@ ycontents
                    = select_tag :quantity, options_for_select(1.upto(10).to_a)
                    = image_submit_tag 'shoppingcart.png'
                - else
-                 .sold_out
-                   = Comable.t('soldout')
+                 p 
+                   .sold_out
+                     = Comable.t('soldout')
 
      /! 詳細側
      .main-detail
