@@ -3,7 +3,7 @@
     h2 配送先住所
     hr.line-bg/
     .step
-      img alt="" src="/assets/step_01.gif"
+      img alt="" src="/assets/step_01.png"
     - if @order.ship_address.try(:persisted?)
       = render 'comable/shared/address', address: @order.ship_address
       = link_to Comable.t('next_step'), next_order_path
