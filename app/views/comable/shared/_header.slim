@@ -1,29 +1,29 @@
 #header
-  h1 =link_to image_tag('logo.gif'),main_app.top_path
+  h1 =link_to image_tag('logo.gif'),comable.root_path
   .member-info
     .cart
       = link_to comable.cart_path do
         .inner-bg
-          - if current_customer.cart.present?
+          - if current_comable_user.cart.present?
             p
-              = current_customer.cart.count
+              = current_comable_user.cart.count
               span 点　　&yen
-              = number_to_currency current_customer.cart.price
+              = number_to_currency current_comable_user.cart.price
               span -
           - else
             p 0 点　　&yen 0-
     p.test
       | 　　　
-      = link_to '会員登録',comable.customer_session_path
+      = link_to '会員登録',comable.user_session_path
       | 　｜　
-      = link_to 'マイページ',comable.customer_path
+      = link_to 'マイページ',comable.user_path
       | 　｜　
-      - if current_customer.signed_in?
-        = link_to comable.destroy_customer_session_path, method: :delete do
+      - if current_comable_user.signed_in?
+        = link_to comable.destroy_user_session_path, method: :delete do
           i.glyphicon.glyphicon-log-out
           = Comable.t('sign_out')
       - else
-        = link_to comable.new_customer_session_path do
+        = link_to comable.new_user_session_path do
           i.glyphicon.glyphicon-log-in
           = Comable.t('sign_in')
 /! end#heder

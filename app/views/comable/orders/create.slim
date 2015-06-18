@@ -1,6 +1,6 @@
 #comable-order
   h2
-    = @order.class.human_state_name(:complete)
+    = @order.class.human_state_name(:completed)
   hr.line-bg/
   .step
     img alt="" src="/assets/step_04.png"
@@ -13,5 +13,5 @@
       span =@order.code
       br
       | 商品のお届けまで、もうしばらくお待ちください。
-    = link_to 'TOPに戻る',main_app.top_path
+    = link_to 'TOPに戻る', comable.root_path
 

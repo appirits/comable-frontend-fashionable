@@ -1,12 +1,12 @@
 #wrap
   h2 ショッピングカート
   hr.line-bg
-  - if current_customer.cart.errors.any?
+  - if current_comable_user.cart.errors.any?
     .errors
       ul
-        - current_customer.cart.errors.full_messages.each do |message|
+        - current_comable_user.cart.errors.full_messages.each do |message|
           li = message
-  - if current_customer.cart.empty?
+  - if current_comable_user.cart.empty?
     = Comable.t('carts.empty')
   - else
     table.cart
@@ -17,7 +17,7 @@
         th 単価（税込）
         th 小計
         th 削除
-      - current_customer.cart.each do |cart_item|
+      - current_comable_user.cart.each do |cart_item|
         - stock = cart_item.stock
         - product = stock.product
         tr
@@ -30,7 +30,7 @@
               = stock.name_with_sku
             .caption
               = product.caption
-            - if cart_item.soldout_stock?
+            - if cart_item.unstocked?
               .error.soldout = Comable.t('carts.soldout')
           td.center
             = form_tag comable.cart_path, method: :put do

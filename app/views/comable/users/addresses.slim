@@ -1,0 +1,58 @@
+#warp
+  h2 マイページ：アドレス帳
+  hr.line-bg
+  .my-menu
+    p
+      span >>>
+      = link_to '注文履歴', comable.user_registration_path
+    p
+      span >>>
+      = link_to "メールアドレス・パスワード変更", comable.edit_user_path
+    p
+      span >>>
+      = link_to "アドレス帳編集", comable.addresses_user_path
+  .my-contents
+    = form_for current_comable_user, as: :user, url: comable.addresses_user_url, method: :put do |f|
+      - current_comable_user.errors.full_messages.each do |full_message|
+        li = full_message
+      - if current_comable_user.addresses.empty?
+        .not_found
+          p
+            = Comable.t('not_found')
+      - else
+        .row
+          table.address
+            h2
+              = current_comable_user.class.human_attribute_name(:bill_address)
+            - if current_comable_user.bill_address
+              = render 'address', address: current_comable_user.bill_address
+            - else
+              .not_found
+                p
+                  = Comable.t('not_found')
+
+          table.address
+            h2
+              = current_comable_user.class.human_attribute_name(:ship_address)
+            - if current_comable_user.ship_address
+              = render 'address', address: current_comable_user.ship_address
+            - else
+              .not_found
+                p
+                  = Comable.t('not_found')
+
+          .other_addresses
+            h2
+              = Comable.t('other_addresses')
+            - current_comable_user.other_addresses.each do |address|
+              table.address
+                = render 'address', address: address
+
+    = form_for current_comable_user, as: :user, url: comable.addresses_user_url, method: :put do |f|
+      h2 新規登録
+      table.address
+        tbody
+          = f.fields_for :addresses, current_comable_user.addresses.build do |ff|
+            = render 'comable/shared/address_form', address: ff
+      .bt-box
+        = f.submit '変更する', class: 'btn-center'
