@@ -16,8 +16,8 @@
       th 単価（税込）
       th 小計
       th 削除
-    - @order.order_details.each do |order_detail|
-      - stock = order_detail.stock
+    - @order.order_items.each do |order_item|
+      - stock = order_item.stock
       - product = stock.product
       tr
         td.center
@@ -29,14 +29,14 @@
             = stock.name_with_sku
           .caption
             = product.caption
-          - if order_detail.soldout_stock?
+          - if order_item.unstocked?
             .error.soldout = Comable.t('carts.soldout')
         td.center
-          = order_detail.quantity
+          = order_item.quantity
         td.right
           = number_to_currency product.price
         td.right
-          = number_to_currency product.price*order_detail.quantity
+          = number_to_currency product.price*order_item.quantity
         td.center
           = link_to image_tag('/assets/bt_delete.png'), comable.cart_path(stock_id: stock.id), method: :delete
     tr

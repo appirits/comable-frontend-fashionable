@@ -28,7 +28,7 @@ contents
                   | （
                   =stock.quantity
                   | ）
-                - if stock.unsold?
+                - if stock.stocked?
                   .add_cart.form-inline.form-group
                     = hidden_field_tag :stock_id, stock.id
                     = hidden_field_tag :product_id, @product.id

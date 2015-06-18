@@ -17,8 +17,8 @@
       th 単価（税込）
       th 小計
       th 削除
-    - @order.order_details.each do |order_detail|
-      - stock = order_detail.stock
+    - @order.order_items.each do |order_item|
+      - stock = order_item.stock
       - product = stock.product
       tr
         td.center
@@ -30,10 +30,10 @@
             = link_to stock.name_with_sku, comable.product_path(product)
           .caption
             = product.caption
-          - if order_detail.soldout_stock?
+          - if order_item.unstocked?
             .error.soldout = Comable.t('carts.soldout')
         td.center
-          = order_detail.quantity
+          = order_item.quantity
         td.right
           = number_to_currency product.price
         td.right

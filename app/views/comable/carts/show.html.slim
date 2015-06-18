@@ -30,7 +30,7 @@
               = stock.name_with_sku
             .caption
               = product.caption
-            - if cart_item.soldout_stock?
+            - if cart_item.unstocked?
               .error.soldout = Comable.t('carts.soldout')
           td.center
             = form_tag comable.cart_path, method: :put do
