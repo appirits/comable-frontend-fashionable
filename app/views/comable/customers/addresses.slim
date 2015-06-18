@@ -12,10 +12,10 @@
       span >>>
       = link_to "アドレス帳編集", comable.addresses_customer_path
   .my-contents
-    = form_for current_customer, as: :customer, url: comable.addresses_customer_url, method: :put do |f|
-      - current_customer.errors.full_messages.each do |full_message|
+    = form_for current_comable_user, as: :customer, url: comable.addresses_customer_url, method: :put do |f|
+      - current_comable_user.errors.full_messages.each do |full_message|
         li = full_message
-      - if current_customer.addresses.empty?
+      - if current_comable_user.addresses.empty?
         .not_found
           p
             = Comable.t('not_found')
@@ -23,9 +23,9 @@
         .row
           table.address
             h2
-              = current_customer.class.human_attribute_name(:bill_address)
-            - if current_customer.bill_address
-              = render 'address', address: current_customer.bill_address
+              = current_comable_user.class.human_attribute_name(:bill_address)
+            - if current_comable_user.bill_address
+              = render 'address', address: current_comable_user.bill_address
             - else
               .not_found
                 p
@@ -33,9 +33,9 @@
 
           table.address
             h2
-              = current_customer.class.human_attribute_name(:ship_address)
-            - if current_customer.ship_address
-              = render 'address', address: current_customer.ship_address
+              = current_comable_user.class.human_attribute_name(:ship_address)
+            - if current_comable_user.ship_address
+              = render 'address', address: current_comable_user.ship_address
             - else
               .not_found
                 p
@@ -44,15 +44,15 @@
           .other_addresses
             h2
               = Comable.t('other_addresses')
-            - current_customer.other_addresses.each do |address|
+            - current_comable_user.other_addresses.each do |address|
               table.address
                 = render 'address', address: address
 
-    = form_for current_customer, as: :customer, url: comable.addresses_customer_url, method: :put do |f|
+    = form_for current_comable_user, as: :customer, url: comable.addresses_customer_url, method: :put do |f|
       h2 新規登録
       table.address
         tbody
-          = f.fields_for :addresses, current_customer.addresses.build do |ff|
+          = f.fields_for :addresses, current_comable_user.addresses.build do |ff|
             = render 'comable/shared/address_form', address: ff
       .bt-box
         = f.submit '変更する', class: 'btn-center'

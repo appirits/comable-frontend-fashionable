@@ -37,7 +37,7 @@
         td.right
           = number_to_currency product.price
         td.right
-          = number_to_currency current_customer.cart.price
+          = number_to_currency current_comable_user.cart.price
         td.center
           = link_to image_tag('/assets/bt_delete.png'), comable.cart_path(stock_id: stock.id), method: :delete
     tr

@@ -4,11 +4,11 @@
     .cart
       = link_to comable.cart_path do
         .inner-bg
-          - if current_customer.cart.present?
+          - if current_comable_user.cart.present?
             p
-              = current_customer.cart.count
+              = current_comable_user.cart.count
               span 点　　&yen
-              = number_to_currency current_customer.cart.price
+              = number_to_currency current_comable_user.cart.price
               span -
           - else
             p 0 点　　&yen 0-
@@ -18,7 +18,7 @@
       | 　｜　
       = link_to 'マイページ',comable.customer_path
       | 　｜　
-      - if current_customer.signed_in?
+      - if current_comable_user.signed_in?
         = link_to comable.destroy_customer_session_path, method: :delete do
           i.glyphicon.glyphicon-log-out
           = Comable.t('sign_out')
