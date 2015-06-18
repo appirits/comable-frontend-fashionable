@@ -40,7 +40,7 @@ html lang="ja" xml:lang="ja" xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http
     
     #wrap
       main.container
-        - if controller_name == "products" && action_name == "top"
+        - if controller_name == "home"
           = image_tag "top.jpg"      
         - flash.each do |name, msg|
           = content_tag(:div, msg, id: "flash_#{name}")

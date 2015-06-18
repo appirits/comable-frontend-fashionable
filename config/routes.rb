@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get 'top' => 'comable/products#top' 
   mount Comable::Core::Engine => '/comable'
   #  get 'top' => 'comable/products#top' 
 

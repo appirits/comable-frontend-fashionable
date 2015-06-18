@@ -2,7 +2,7 @@
   
   ul.breadcrumb
     li
-      = link_to "トップページ",main_app.top_path
+      = link_to "トップページ",comable.root_path
       | 　&gt;
     - if @category.present? && @category.ancestors.present?
       li 
