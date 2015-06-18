@@ -1,0 +1,45 @@
+#wrap
+  h2 マイページ：メールアドレス・パスワード変更
+  hr.line-bg
+  = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
+    = devise_error_messages!
+    .my-menu
+      p
+        span >>> 
+        = link_to '注文履歴', comable.customer_registration_path
+      p
+        span >>> 
+        = link_to "メールアドレス・パスワード変更", comable.edit_customer_path
+      p
+        span >>> 
+        = link_to "アドレス帳編集", comable.addresses_customer_path
+    .my-contents
+      table.account
+        tbody
+          tr
+            th メールアドレス
+            td
+              = f.email_field :email, autofocus: true, style: 'width:400px'
+              br
+              | ※メールアドレスを変更する場合は、新しいメールアドレスを入力してください。  
+          tr
+            th パスワード
+            td
+              | 現在のパスワード
+              br
+              = f.password_field :current_password, autocomplete: "off", style: 'width:400px'
+              br
+              | 変更後のパスワード           
+              br
+              = f.password_field :password, autocomplete: "off", style: 'width:400px'
+              br
+              | ▼ 確認のためもう一度入力してください
+              br
+              = f.password_field :password_confirmation, autocomplete: "off", style: 'width:400px'
+              br
+              span
+                | ※情報変更の際はパスワード入力が必須となります。
+                br
+                | ※パスワードを変更したい場合は、新しいパスワードを入力してください。
+      .bt-box
+        = f.submit "変更する", class: 'btn'
