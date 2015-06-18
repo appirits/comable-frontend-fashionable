@@ -37,7 +37,7 @@ gem 'spring',        group: :development
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
-gem 'comable', '0.3.3'
+gem 'comable', github: 'appirits/comable'
 gem 'selectable_attr_rails'
 gem 'rails-i18n', '~> 4.0.0'
 gem 'devise-i18n', '~> 0.12.0'
