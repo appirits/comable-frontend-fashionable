@@ -1,62 +1,60 @@
-ycontents 
+contents 
   #main
-   ul.breadcrumb
-     li
-       = link_to "トップページ", main_app.top_path
-     li
-       span >
-       - if @product.categories.any?
-         - @product.categories.first.path.each do |category|
-           li = link_to category.name, comable.products_path(category_id: category.id)
-     li.active
-       span >
-       = @product.name
-   hr.line-bg
+    ul.breadcrumb
+      li
+        = link_to "トップページ", main_app.top_path
+      li
+        span >
+        - if @product.categories.any?
+          - @product.categories.first.path.each do |category|
+            li = link_to category.name, comable.products_path(category_id: category.id)
+      li.active
+        span >
+        = @product.name
+    hr.line-bg
 
-   #ProductDetailArea
+    #ProductDetailArea
+      /! 画像側
+      .main-product
+        .sample
+          = image_tag @product.image_url, class: 'main', width: '100%'
+        ul.stock
+          - @product.stocks.each do |stock|
+            = form_tag comable.add_cart_path do
+              li.ed
+                p =stock.sku_v_choice_name
+                p
+                  =stock.sku_h_choice_name
+                  | （
+                  =stock.quantity
+                  | ）
+                - if stock.unsold?
+                  .add_cart.form-inline.form-group
+                    = hidden_field_tag :stock_id, stock.id
+                    = hidden_field_tag :product_id, @product.id
+                    = select_tag :quantity, options_for_select(1.upto(10).to_a)
+                    = image_submit_tag 'shoppingcart.png'
+                - else
+                  p 
+                    .sold_out
+                      = Comable.t('soldout')
 
-     /! 画像側
-     .main-product
-       .sample
-         = image_tag @product.image_url, class: 'main', width: '100%'
-       ul.stock
-         - @product.stocks.each do |stock|
-           = form_tag comable.add_cart_path do
-             li.ed
-               p =stock.sku_v_choice_name
-               p
-                 =stock.sku_h_choice_name
-                 | （
-                 =stock.quantity
-                 | ）
-               - if stock.unsold?
-                 .add_cart.form-inline.form-group
-                   = hidden_field_tag :stock_id, stock.id
-                   = hidden_field_tag :product_id, @product.id
-                   = select_tag :quantity, options_for_select(1.upto(10).to_a)
-                   = image_submit_tag 'shoppingcart.png'
-               - else
-                 p 
-                   .sold_out
-                     = Comable.t('soldout')
-
-     /! 詳細側
-     .main-detail
-       .icon
-         p.new New
-       p.lot-number
-         | 商品番号：
-         = @product.code
-       h2 =@product.name
-       p.price = number_to_currency @product.price
-       p.title Detail
-       ul.DetailColor
-         - @product.images.each do |image|      
-           li
-             = image_tag image.url
-     .introduction
-   
-       p アイテム紹介
-       p.text =@product.caption
-   hr.dod
+      /! 詳細側
+      .main-detail
+        .icon
+          p.new New
+        p.lot-number
+          | 商品番号：
+          = @product.code
+        h1 = @product.name
+        p.price = number_to_currency @product.price
+        p.title Detail
+        ul.DetailColor
+          - @product.images.each do |image|      
+            li
+              = image_tag image.url
+      .introduction
+        p アイテム紹介
+        p.text =@product.caption
+      hr.dod
 

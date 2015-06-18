@@ -20,11 +20,11 @@
       | 　｜　
       - if current_customer.signed_in?
         = link_to comable.destroy_customer_session_path, method: :delete do
-          i.glyphicon.glyphicon-log-out>
+          i.glyphicon.glyphicon-log-out
           = Comable.t('sign_out')
       - else
         = link_to comable.new_customer_session_path do
-          i.glyphicon.glyphicon-log-in>
+          i.glyphicon.glyphicon-log-in
           = Comable.t('sign_in')
 /! end#heder
 hr.line/

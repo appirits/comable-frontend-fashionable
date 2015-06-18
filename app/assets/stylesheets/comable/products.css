@@ -5,7 +5,7 @@ p.result {
 	font-size: 18px;
 	font-family: "メイリオ", Meiryo;
 	font-weight: bold;
-	margin: 0 0 18px 0;
+	margin: 18px 0;
 }
 
 /* 絞込検索 */
@@ -437,6 +437,7 @@ p.ranking {
 #ProductDetailArea {
         width: 780px;
         overflow: hidden;
+        margin: 18px 0 0 0;
 }
         /* 画像 */
         /* ------------------------------ */
@@ -558,7 +559,7 @@ p.ranking {
                 /* Detail Color */
                 .title {
                         font-size: 14px;
-                        margin: 20px 0 0 0;
+                        margin: 0;
                 }
                 ul.DetailColor {
                         overflow: hidden;
