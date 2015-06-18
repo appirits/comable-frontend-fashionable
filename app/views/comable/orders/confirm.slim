@@ -62,17 +62,20 @@
           .comable-email
             = @order.email
 
-  p.title 決済方法等
-  .box
-    p
-      span
-        = @order.payment_method.name
+  - if @order.payment
+    p.title 決済方法等
+    .box
+      p
+        span
+          = @order.payment.name
 
-  p.title 配送方法
-  .box
-    p
-      span
-        = @order.shipment_method.name
+  - if @order.shipment
+    p.title 配送方法
+    .box
+      p
+        span
+          = @order.shipment.name
+
   .btn-inner
     th colspan="2"
       = form_for @order, as: :order, url: comable.order_path, method: :post do |f|
