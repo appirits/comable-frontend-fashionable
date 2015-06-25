@@ -30,11 +30,6 @@ html lang="ja" xml:lang="ja" xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http
     = stylesheet_link_tag "comable/#{controller_name}", media: "all"
  
     = render 'comable/shared/header'  
-
-    - seach_and_side_flag = ['users','orders','carts'].include?(controller_name) || devise_controller?
-
-
-    - unless seach_and_side_flag
     
     #wrap
       main.container
@@ -42,10 +37,6 @@ html lang="ja" xml:lang="ja" xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http
           = image_tag "top.jpg"      
         - flash.each do |name, msg|
           = content_tag(:div, msg, id: "flash_#{name}")
- 
-        - unless seach_and_side_flag
-          = render 'comable/shared/sidebar'
-
         == yield
     = render 'comable/shared/footer'
     
