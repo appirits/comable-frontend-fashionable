@@ -18,26 +18,27 @@
       .main-product
         .sample
           = image_tag @product.image_url, class: 'main', width: '100%'
-        ul.stock
-          - @product.stocks.each do |stock|
-            = form_tag comable.add_cart_path do
-              li.ed
-                p =stock.sku_v_choice_name
-                p
-                  =stock.sku_h_choice_name
-                  | （
-                  =stock.quantity
-                  | ）
-                - if stock.stocked?
-                  .add_cart.form-inline.form-group
-                    = hidden_field_tag :stock_id, stock.id
-                    = hidden_field_tag :product_id, @product.id
-                    = select_tag :quantity, options_for_select(1.upto(10).to_a)
-                    = image_submit_tag 'shoppingcart.png'
-                - else
-                  p 
-                    .sold_out
-                      = Comable.t('soldout')
+        - if @product.stocks.present?
+          ul.stock
+            - @product.stocks.each do |stock|
+              = form_tag comable.add_cart_path do
+                li.ed
+                  p =stock.sku_v_choice_name
+                  p
+                    =stock.sku_h_choice_name
+                    | （
+                    =stock.quantity
+                    | ）
+                  - if stock.stocked?
+                    .add_cart.form-inline.form-group
+                      = hidden_field_tag :stock_id, stock.id
+                      = hidden_field_tag :product_id, @product.id
+                      = select_tag :quantity, options_for_select(1.upto(10).to_a)
+                      = image_submit_tag 'shoppingcart.png'
+                  - else
+                    p 
+                      .sold_out
+                        = Comable.t('soldout')
 
       /! 詳細側
       .main-detail
@@ -54,7 +55,9 @@
             li
               = image_tag image.url
       .introduction
-        p アイテム紹介
-        p.text =@product.caption
+        - if @product.caption.present?
+          p アイテム紹介
+          p.text
+            =@product.caption
       hr.dod
 

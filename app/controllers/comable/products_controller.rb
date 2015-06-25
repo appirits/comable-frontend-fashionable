@@ -3,19 +3,16 @@ module Comable
     before_filter :load_category_and_products, only: :index
 
     def index 
-      @products = @products.page(params[:page]).per(::Product.per_name_by_id(params[:per])).order(::Product.order_by_entry_by_id(params[:order_by])[:sql])
+      @products = @products.page(params[:page]).per(::Product.per_name_by_id(params[:per])).reorder(::Product.order_by_entry_by_id(params[:order_by])[:sql])
       if :in_stock == ::Product.stock_key_by_id(params[:stock].to_i)
-        @products = @products.joins(:stocks).where('quantity > 0')
+        @products = @products.joins(:stocks).merge(Comable::Stock.stocked)
       elsif :out_of_stock  == ::Product.stock_key_by_id(params[:stock].to_i)
-	@products = @products.joins(:stocks).where('quantity <= 0')
+	@products = @products.joins(:stocks).merge(Comable::Stock.unstocked)
       end
     end
 
     def show
       @product = Comable::Product.find(params[:id])
-    end
-    def top
-      @products = Comable::Product.order("id DESC").limit(4)
     end
     private
 

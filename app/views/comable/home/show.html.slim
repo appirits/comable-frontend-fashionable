@@ -34,7 +34,7 @@
       p.title
         | New arrival
         span 新着アイテム
-      - @products.take(4).each_slice(4) do |products|
+      - @products.order("id DESC").take(4).each_slice(4) do |products|
         - products.each do |product|
           .item
             p.new New

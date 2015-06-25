@@ -781,3 +781,7 @@ dl {
                         width: 890px;
                 }
 
+/* error */
+p.error {
+ text-align: center;
+}
