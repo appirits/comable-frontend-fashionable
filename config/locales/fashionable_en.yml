@@ -1,0 +1,11 @@
+en:
+  enumerize:
+    comable/product:
+      order_by:
+        newly: 'Newly'
+        high_price: 'High price'
+        low_price: 'Low price'
+      filter_by_stocks:
+        all: 'all'
+        in_stock: 'In stocks'
+        out_of_stock: 'Out of stocks'

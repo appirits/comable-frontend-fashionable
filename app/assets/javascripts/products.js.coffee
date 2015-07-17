@@ -19,18 +19,18 @@ $ ->
   #最大表示数切り替え
   $ ->
     #
-    $('select#per').change ->
-      location.href= $(this).val()
+    $('#per_page select').change ->
+      $(this).closest('form').submit()
 
   #並び替え（新着、価格）
   $ ->
     #
-    $('select#order_by').change ->
-      location.href= $(this).val()
+    $('#order_by select').change ->
+      $(this).closest('form').submit()
 
   #在庫の有無
   $ ->
     #
-    $('select#stock').change ->
-      location.href= $(this).val()
+    $('#filter_by_stocks select').change ->
+      $(this).closest('form').submit()
 

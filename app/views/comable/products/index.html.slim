@@ -21,50 +21,25 @@
     = @products.total_count
     | 件
   .search
-    p.cate 表示件数
-    select#per
-      - if @category.present?
-        - if params[:per].present?
-          option value="/comable/products?category_id=#{@category.id}&per=#{params[:per]}" =Product.per_name_by_id(params[:per])
-        - Product.per_options.each do |option|
-          -if params[:per] != option.last.to_s
-            option value="/comable/products?category_id=#{@category.id}&per=#{option.last}" =option.first
-      -else
-        - if params[:per].present?
-          option value="/comable/products?per=#{params[:per]}" =Product.per_name_by_id(params[:per])
-        - Product.per_options.each do |option|
-          -if params[:per] != option.last.to_s
-            option value="/comable/products?per=#{option.last}" =option.first
-    p.cate 並び替え
-    select#order_by
-      - if @cotegory.present?
-        - if params[:order_by].present?
-            option value="/comable/products?category_id=#{@category.id}&order_by=#{params[:order_by]}" =Product.order_by_name_by_id(params[:order_by])
-        - Product.order_by_options.each do |option|
-           -if params[:order_by] != option.last.to_s
-             option value="/comable/products?category_id=#{@category.id}&order_by=#{option.last}" =option.first
-      -else
-        - if params[:order_by].present?
-          option value="/comable/products?category_id=#{@category.id}&order_by=#{params[:order_by]}" =Product.order_by_name_by_id(params[:order_by])
-        - Product.order_by_options.each do |option|
-           -if params[:order_by] != option.last.to_s
-             option value="/comable/products?category_id=#{@category.id}&order_by=#{option.last}" =option.first
+    = form_tag comable.products_path, method: :get do
+      .hidden
+        = hidden_field_tag :category_id, params[:category_id]
+        = submit_tag
 
+      #per_page
+        p.cate
+         | 表示件数
+        = select_tag :per_page, options_for_select(Comable::Product.per_page.options, params[:per_page])
 
-    p.cate 在庫の有無
-    select#stock
-      - if @cotegory.present?
-        - if params[:stock].present?
-          option value="/comable/products?category_id=#{@category.id}&stock=#{params[:stock]}" =Product.stock_name_by_id(params[:stock])
-        - Product.stock_options.each do |option|
-          -if params[:stock] != option.last.to_s
-            option value="/comable/products?category_id=#{@category.id}&stock=#{option.last}" =option.first
-      -else
-        - if params[:stock].present?
-          option value="/comable/products?category_id=#{@category.id}&stock=#{params[:stock]}" =Product.stock_name_by_id(params[:stock])
-        - Product.stock_options.each do |option|
-          -if params[:stock] != option.last.to_s
-            option value="/comable/products?category_id=#{@category.id}&stock=#{option.last}" =option.first
+      #order_by
+        p.cate
+          | 並び替え
+        = select_tag :order_by, options_for_select(Comable::Product.order_by.options, params[:order_by])
+
+      #filter_by_stocks
+        p.cate
+          | 在庫の有無
+        = select_tag :filter_by_stocks, options_for_select(Comable::Product.filter_by_stocks.options, params[:filter_by_stocks])
 
   .box
     .product.col-sm-10

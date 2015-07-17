@@ -18,5 +18,4 @@ Gem::Specification.new do |s|
   s.add_dependency 'sass-rails', '~> 5.0.1'
   s.add_dependency 'coffee-rails', '~> 4.0.0'
   s.add_dependency 'jquery-rails'
-  s.add_dependency 'selectable_attr_rails'
 end
