@@ -6,9 +6,9 @@ Gem::Specification.new do |s|
   s.version     = version
   s.authors     = ['sudamitsuhiro']
   s.email       = ['suda@appirits.com']
-  s.homepage    = 'TODO'
-  s.summary     = 'TODO'
-  s.description = 'TODO'
+  s.homepage    = 'http://github.com/appirits/comable-frontend-fashionable'
+  s.summary     = 'Provides fashionable frontend to the comable application'
+  s.description = 'Provides fashionable frontend to the comable application'
 
   s.files = Dir['{app,config,lib}/**/*', 'Rakefile', 'README.rdoc']
 
