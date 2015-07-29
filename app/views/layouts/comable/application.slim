@@ -19,10 +19,10 @@ html lang="ja" xml:lang="ja" xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http
     - if current_store.meta_description.present?
       meta name="description" content="#{current_store.meta_description}"
 
-    = javascript_include_tag "application"
+    = javascript_include_tag "comable/application"
     = csrf_meta_tags
 
-    = stylesheet_link_tag "application"
+    = stylesheet_link_tag "comable/application"
 
     css:
       .hidden { display: none; }
