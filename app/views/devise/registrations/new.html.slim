@@ -9,43 +9,6 @@ hr.line-bg/
         ul
           - current_comable_user.errors.full_messages.each do |full_message|
             li = full_message
-
-    - if current_comable_user.addresses.empty?
-      .not_found
-        p
-          = Comable.t('not_found')
-    - else
-      .row
-        .bill_address.col-sm-6
-          h2
-            = current_comable_user.class.human_attribute_name(:bill_address)
-          - if current_comable_user.bill_address
-            = render 'address', address: current_comable_user.bill_address
-          - else
-            .not_found
-              p
-                = Comable.t('not_found')
-
-        .ship_address.col-sm-6
-          h2
-            = current_comable_user.class.human_attribute_name(:ship_address)
-          - if current_comable_user.ship_address
-            = render 'address', address: current_comable_user.ship_address
-          - else
-            .not_found
-              p
-                = Comable.t('not_found')
-
-      .row
-        .other_addresses
-          h2
-            = Comable.t('other_addresses')
-          ul.list-unstyled
-            - current_comable_user.other_addresses.each do |address|
-              li.col-sm-4
-                = render 'address', address: address
-
-
   = form_for current_comable_user, as: :user, url: comable.user_path, method: :post do |f|
     table.new-member
       .tbody

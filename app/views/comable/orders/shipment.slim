@@ -7,7 +7,7 @@
         - @order.errors.full_messages.each do |message|
           li = message
   .step
-    img alt="" src="/assets/step_02.png"
+    = image_tag("step_02.png")
   table.cart
     tr
       th 商品画像
@@ -38,7 +38,7 @@
         td.right
           = number_to_currency product.price*order_item.quantity
         td.center
-          = link_to image_tag('/assets/bt_delete.png'), comable.cart_path(stock_id: stock.id), method: :delete
+          = link_to image_tag("bt_delete.png"), comable.cart_path(stock_id: stock.id), method: :delete
     tr
       td 合計
       td.right colspan="5"

@@ -1,10 +1,6 @@
 $ ->
   # 画像切り替え
   $ ->
-    i = 1
-    while i <= 5
-      $('<img>').attr 'src', '../img/product/shoes_01' + i + '.jpg'
-      i++
     $('.DetailColor img').click ->
       #　thumbをfulに置換
       img_full = $(this).attr('src').replace('DetailColor', 'sample')

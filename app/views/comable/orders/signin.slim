@@ -6,9 +6,9 @@
           li = full_message
 
   h2 ショッピングカート：注文者情報入力（新規会員登録）
-  hr.line-bg/
+  hr.line-bg
   .step
-    img alt="" src="/assets/step_01.png"
+    = image_tag("step_01.png")
   table.cart
     tr
       th 商品画像
@@ -39,7 +39,7 @@
         td.right
           = number_to_currency current_comable_user.cart.price
         td.center
-          = link_to image_tag('/assets/bt_delete.png'), comable.cart_path(stock_id: stock.id), method: :delete
+          = link_to image_tag("bt_delete.png"), comable.cart_path(stock_id: stock.id), method: :delete
     tr
       td 合計
       td.right colspan="5"
@@ -60,7 +60,7 @@
           td
             = f.password_field :password, autocomplete: "off", class: 'id-pass' 
         p.bt-login
-          = image_submit_tag "/assets/bt_login.png", :class=>'bt-login'
+          = image_submit_tag "bt_login.png", :class=>'bt-login'
         p.forget
           = link_to "パスワードをお忘れの方はこちら", comable.new_user_password_path
     .member-box
@@ -72,7 +72,7 @@
         br
         | 会員登録をすると便利なMyページをご利用いただけます。また、ログインするだけで、毎回お名前や住所などを入力することなくスムーズにお買い物をお楽しみいただけます。
       .bt-member
-        = link_to image_tag('/assets/bt_member.png'), comable.new_user_registration_path
+        = link_to image_tag("bt_member.png"), comable.new_user_registration_path
   p.center 会員登録をしないで商品を購入される方は、こちらより購入手続きが行えます。
   .btn-inner
     = form_for @order, as: :order, url: comable.guest_order_path, method: :put do |f|
