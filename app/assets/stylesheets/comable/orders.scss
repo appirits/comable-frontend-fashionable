@@ -124,7 +124,7 @@ table.new-member {
 		.forget {
 			float: right;
 			font-size: 14px;
-			background: url(../img/cart/forget_icon.png) no-repeat;
+			background: image-url("forget_icon.png") no-repeat;
 			background-position: 98% 65%;
 			padding: 8px 18px 0 0;
 		}
@@ -135,6 +135,7 @@ table.new-member {
 				color: #666446;
 				text-decoration: underline;
 			}
+
 	/* 会員登録 */
 	.member-box {
 		float: right;
@@ -259,7 +260,7 @@ table.delivery {
 	border:1px solid #5e5e5e;
 	padding:4px 18px 3px 0;
 	text-indent: 40px;
-	background: url(../img/account/bt_icon.png) no-repeat #818181;
+	background: image-url("bt_icon.png") no-repeat #818181;
 	background-position: 18px 49%;
 	color:#ffffff;
 	display:inline-block;
@@ -283,14 +284,15 @@ table.delivery {
 	border:1px solid #c91b24;
 	padding:4px 18px 3px 0;
 	text-indent: 40px;
-	background: url(/assets/bt_icon.png) no-repeat #e96b27;
+	background: image-url("bt_icon.png") no-repeat #e96b27;
 	background-position: 18px 49%;
 	color:#ffffff;
 	display:inline-block;
 	-webkit-box-shadow:inset 1px 1px 0px 0px #fce2c1;
 	-moz-box-shadow:inset 1px 1px 0px 0px #fce2c1;
 	box-shadow:inset 1px 1px 0px 0px #fce2c1;
-	margin: 0 auto 20px;}
+	margin: 0 auto 20px;
+}
 .btn:hover {
 	opacity: 0.8;
 	filter: alpha(opacity=80);

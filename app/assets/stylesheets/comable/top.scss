@@ -26,7 +26,7 @@
 		height: 32px;
 		border-style: none;
 		border-radius: 5px;
-		background: url(/assets/search.png) #616161 no-repeat;
+		background: image-url("search.png") #616161 no-repeat;
 		background-position: 10px 7px;
 		text-indent: 14px;
 		font-size: 15px;
@@ -111,7 +111,7 @@
 	display: block;
 	border: none;
 	height: 11px;
-	background: url(/assets/line_bg.gif) repeat;
+	background: image-url("line_bg.gif") repeat;
 	text-indent: -9999px;
 	margin: 18px 0;
 }

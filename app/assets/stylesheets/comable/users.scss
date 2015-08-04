@@ -13,7 +13,7 @@ section {
 p.title {
 	font-size: 15px;
 	font-weight: bold;
-	background: url(/assets/icon.png) top left no-repeat;
+	background: image-url("icon.png") top left no-repeat;
 	background-position: 0px 3px;
 	text-indent: 23px;
 }
@@ -194,7 +194,7 @@ p.center {
 	border-radius:5px;
 	padding:6px 18px 5px 0;
 	text-indent: 40px;
-	background: url(/assets/bt_icon.png) no-repeat #000;
+	background: image-url("bt_icon.png") no-repeat #000;
 	background-position: 18px 49%;
 	color:#ffffff;
 	display:inline-block;
@@ -215,7 +215,7 @@ p.center {
 	border-radius: 5px;
 	padding: 6px 18px 5px 0;
   	text-indent: 40px;
-  	background: url(/assets/bt_icon.png) no-repeat #000;
+  	background: image-url("bt_icon.png") no-repeat #000;
   	background-position: 18px 49%;
   	color: #ffffff;
   	display: inline-block;
