@@ -44,7 +44,7 @@
           td.right
             = number_to_currency product.price*cart_item.quantity
           td.center
-            = link_to image_tag('/assets/bt_delete.png'), comable.cart_path(stock_id: stock.id), method: :delete
+            = link_to image_tag("bt_delete.png"), comable.cart_path(stock_id: stock.id), method: :delete
     .btn-inner
       = form_for current_order, as: :order, url: comable.checkout_cart_path, method: :put do |f|
         = f.submit "ご注文画面へすすむ", class: 'btn btn-primary btn-lg btn-block'
