@@ -12,7 +12,7 @@ Gem::Specification.new do |s|
 
   s.files = Dir['{app,config,lib}/**/*', 'Rakefile', 'README.rdoc']
 
-  s.add_dependency 'comable-frontend', version
+  s.add_dependency 'comable-frontend', "~> #{version.split('.')[0..1].join('.')}.0"
 
   s.add_dependency 'rails', '>= 3.2.0', '< 5'
   s.add_dependency 'sass-rails', '>= 5.0.0', '< 6'
